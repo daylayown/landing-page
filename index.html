@@ -115,7 +115,7 @@
     .hero{
       display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom: 10px;
     }
-    .hero img{ width:64px; height:64px; border-radius:8px; border:2px solid #333; box-shadow: var(--shadow); }
+    .hero svg{ width:64px; height:64px; border-radius:8px; border:2px solid #333; box-shadow: var(--shadow); background: #0b0b0b; }
     .hero h2{ margin:0; font-size: clamp(18px, 2.6vw, 26px); color: var(--ink); text-shadow: 2px 2px 0 #000; }
 
     /* Project list with chunky borders */
@@ -202,7 +202,7 @@
         <!-- MAIN -->
         <main class="main" id="main">
           <div class="hero">
-            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">Arizona Sun</title>
   <desc id="desc">A bright yellow sun with subtle glow and rays</desc>
   <defs>
@@ -218,9 +218,6 @@
       <stop offset="100%" stop-color="#FFC400" stop-opacity="0.0"/>
     </linearGradient>
   </defs>
-
-  <!-- background -->
-  <rect width="128" height="128" fill="#0b0b0b"/>
 
   <!-- rays -->
   <g transform="translate(64 64)">
