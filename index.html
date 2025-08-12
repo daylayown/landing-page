@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DAYLAYOWN.ORG — Nicholas De Leon</title>
-  <meta name="description" content="Projects, experiments, and assorted web grime by Nicholas De Leon." />
+  <meta name="description" content="Projects, experiments, and assorted web stuff by Nicholas De Leon." />
 
   <!-- Open Graph / Twitter for nicer shares -->
   <meta property="og:title" content="DAYLAYOWN.ORG — Nicholas De Leon" />
@@ -131,6 +131,18 @@
     }
     .btn:hover{ filter: brightness(1.2); transform: translateY(-1px);
     }
+    /* Style for disabled buttons to make them look inactive */
+    .btn[aria-disabled="true"]{
+      background: repeating-linear-gradient(
+        -45deg,
+        #0b1a22,
+        #0b1a22 4px,
+        #15242c 4px,
+        #15242c 8px
+      );
+      color: #789;
+      pointer-events: none; /* Make the link unclickable */
+    }
 
     /* Footer badges */
     .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
@@ -241,7 +253,7 @@
 
             <div>
               <h2>Projects, experiments & more.</h2>
-              <p style="margin:0">Reporter by day, member of the technical staff by night. Swapped NYC for the desert. DayLayOwn is how my name is pronounced. 
+              <p style="margin:0">Reporter by day, member of the technical staff by night. Swapped NYC for the desert. Trying to build fun stuff. 
                 <strong>Best viewed in Netscape 4.0 at 800×600</strong> 🌵
               </p>
             </div>
