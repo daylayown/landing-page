@@ -27,66 +27,73 @@
       --shadow: 0 8px 24px rgba(0,0,0,.6);
     }
 
-    /* CRT-ish tiled background (no external image) */
+    /* Flat dark blue + tiled starfield pattern */
     body{
       margin:0;
       color:#e9edf1;
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(1500px 800px at -10% -10%, rgba(254,215,0,.14), transparent 60%),
-        radial-gradient(1200px 700px at 110% 0%, rgba(187,19,62,.12), transparent 60%),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 2px, rgba(0,0,0,0) 2px 4px),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+      font: 16px/1.6 "Times New Roman", Times, serif;
+      background-color: #000a1a;
+      background-image:
+        repeating-radial-gradient(circle at 17% 32%, #fff 0px, #fff 1px, transparent 1px, transparent 100px),
+        repeating-radial-gradient(circle at 63% 18%, #fff 0px, #fff 1px, transparent 1px, transparent 140px),
+        repeating-radial-gradient(circle at 91% 67%, rgba(255,255,255,.7) 0px, rgba(255,255,255,.7) 1px, transparent 1px, transparent 120px),
+        repeating-radial-gradient(circle at 38% 82%, rgba(255,255,255,.5) 0px, rgba(255,255,255,.5) 1px, transparent 1px, transparent 90px),
+        repeating-radial-gradient(circle at 72% 44%, rgba(254,215,0,.6) 0px, rgba(254,215,0,.6) 1px, transparent 1px, transparent 160px);
     }
 
     a{ color: var(--link); text-decoration: underline; text-decoration-thickness: 2px; }
     a:hover{ color: #FED700; }
 
+    h1, h2, h4{ font-family: "Courier New", Courier, monospace; }
+
     .wrap{ max-width: 980px; margin: 0 auto; padding: 18px; }
 
-    /* Top banner: fake GIF stripes + marquee */
+    /* Top banner: flat blue + diagonal stripes */
     .banner{
-      border: 3px double var(--grid);
+      border: 4px ridge var(--grid);
       background:
         repeating-linear-gradient(45deg, rgba(254,215,0,.08) 0 8px, rgba(0,0,0,0) 8px 16px),
-        linear-gradient(90deg, #002664, #BB133E);
+        #002664;
       box-shadow: var(--shadow);
-      border-radius: 10px;
       overflow: hidden;
     }
     .banner h1{
-      margin:0; padding: 14px 14px 8px; 
+      margin:0; padding: 14px 14px 8px;
       font-size: clamp(20px, 3.2vw, 34px);
       letter-spacing: 1px;
       text-shadow: 2px 2px 0 #000;
     }
 
-    /* CSS marquee (fallback text still visible) */
+    /* CSS marquee — Comic Sans for max Geocities energy */
     .marquee{
       white-space: nowrap;
       overflow: hidden;
-      border-top:1px solid #0008;
-      border-bottom:1px solid #0008;
-      background: linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      background: #FED700;
+      color: #000;
+      font-family: "Comic Sans MS", cursive;
+      font-weight: 700;
     }
     .marquee span{
-      display:inline-block; padding:8px 0; 
+      display:inline-block; padding:8px 0;
       animation: slide 22s linear infinite;
     }
     @keyframes slide{ from{ transform: translateX(100%);} to{ transform: translateX(-100%);} }
+
+    /* Spinning sun animation */
+    @keyframes spin{ from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
 
     /* Fake window chrome */
     .window{
       margin-top:16px;
       border: 2px solid var(--grid);
-      border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);
+      overflow: hidden; box-shadow: var(--shadow);
       background: var(--paper);
     }
     .titlebar{
       display:flex; align-items:center; gap:8px; padding:8px 10px; background: linear-gradient(#002664, #001a44);
       border-bottom:1px solid #000;
     }
-    .dot{ width:12px; height:12px; border-radius:50%; display:inline-block; }
+    .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; border: 1px outset; }
     .dot.red{ background:#ff5f57; }
     .dot.amber{ background:#febc2e; }
     .dot.green{ background:#28c840; }
@@ -97,40 +104,47 @@
 
     /* Sidebar like a 90s table cell */
     .side{
-      border:2px ridge #003366; padding:12px; background: linear-gradient(180deg, #001a33, #000a1a);
+      border:2px ridge #003366; padding:12px; background: #001022;
     }
     .side h3{
       margin:0 0 6px 0; font-size:16px; color: var(--ink2); text-shadow:1px 1px 0 #000;
     }
     .badge{
-      display:inline-block; padding:.15rem .45rem; border:1px solid #43437a; margin:3px 3px 6px 0; border-radius:4px; background:#151527; font-size:12px;
+      display:inline-block; padding:.15rem .45rem; border:1px inset #43437a; margin:3px 3px 6px 0; background:#0a0a1a; font-size:12px;
     }
     .counter{
-      margin-top: 8px; display:inline-block; padding:4px 8px; font-family: monospace; font-weight:700; background:#111; border:2px inset #333; border-radius:4px;
+      margin-top: 8px; display:inline-block; padding:4px 8px; font-family: "Courier New", Courier, monospace; font-weight:700; font-size:14px; background:#000; color:#0f0; border:2px inset #333;
     }
 
     .main{
-      border:2px groove #003366; padding:12px; background: linear-gradient(180deg, #001a33, #000a1a);
+      border:2px groove #003366; padding:12px; background: #000a1a;
     }
     .hero{
       display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom: 10px;
     }
-    .hero svg{ width:128px; height:128px; border-radius:8px; border:2px solid #333; box-shadow: var(--shadow); background: #0b0b0b; }
+    .hero svg{ width:128px; height:128px; border:2px solid #333; box-shadow: var(--shadow); background: #0b0b0b; animation: spin 12s linear infinite; }
     .hero h2{ margin:0; font-size: clamp(18px, 2.6vw, 26px); color: var(--ink); text-shadow: 2px 2px 0 #000; }
+
+    /* Beveled section divider */
+    hr.divider{
+      border: none;
+      border-top: 3px ridge #003366;
+      margin: 14px 0;
+    }
 
     /* Project list with chunky borders */
     .projects{ display:grid; grid-template-columns: 1fr; gap:12px; }
     .card{
-      border: 2px outset #003366; background: #001a33; padding: 12px; border-radius: 8px; position:relative;
+      border: 3px ridge #003366; background: #001a33; padding: 12px; position:relative;
     }
     .card h4{ margin:0 0 6px; font-size:18px; color: var(--ink2); text-shadow: 1px 1px 0 #000; }
     .meta{ font-size:12px; opacity:.85; margin-bottom:6px; }
     .btns{ display:flex; gap:8px; flex-wrap:wrap; }
     .btn{
-      display:inline-block; border:2px outset #003366; background:#002664; color:#FED700; padding:6px 10px; border-radius:6px; text-decoration:none; font-weight:700;
+      display:inline-block; border:3px outset #003366; background:#002664; color:#FED700; padding:6px 10px; text-decoration:none; font-weight:700;
     }
-    .btn:hover{ filter: brightness(1.2); transform: translateY(-1px);
-    }
+    .btn:hover{ background:#003388; color:#fff; }
+    .btn:active{ border-style: inset; }
     /* Style for disabled buttons to make them look inactive */
     .btn[aria-disabled="true"]{
       background: repeating-linear-gradient(
@@ -144,9 +158,25 @@
       pointer-events: none; /* Make the link unclickable */
     }
 
+    /* Tiny ticker for Banger Articles */
+    .tiny-ticker{
+      background: #FED700;
+      color: #000;
+      font-family: "Comic Sans MS", cursive;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 4px 8px;
+      margin: 6px 0;
+      text-align: center;
+    }
+
+    /* Star list */
+    .starlist{ padding-left: 20px; }
+    .starlist li{ margin-bottom: 4px; }
+
     /* Footer badges */
     .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-    .badge-img{ font-size:12px; border:1px solid #333; padding:6px 8px; background:#111; border-radius:4px; box-shadow: inset 0 0 0 1px #222; }
+    .badge-img{ font-size:12px; border:1px inset #333; padding:6px 8px; background:#0a0a1a; box-shadow: inset 0 0 0 1px #222; }
 
     </style>
 </head>
@@ -185,7 +215,7 @@
             <a class="badge" href="https://www.instagram.com/daylayownphoto" target="_blank" rel="noopener">Instagram</a>
             <a class="badge" href="mailto:hello@daylayown.org">Email me</a>
           </div>
-          
+
 
           <h3 style="margin-top:12px">Web Ring</h3>
           <p style="margin:6px 0">⬅ <a href="https://www.visittucson.org/" target="_blank" rel="noopener">Visit Tucson</a> | <a href="https://www.nps.gov/sagu/index.htm" target="_blank" rel="noopener">Saguaro National Park</a> | <a href="https://www.visitarizona.com" target="_blank" rel="noopener">Visit Arizona</a> ➡</p>
@@ -193,8 +223,11 @@
           <h3 style="margin-top:12px">Guestbook</h3>
           <p><a href="mailto:guestbook@daylayown.org?subject=Guestbook%20entry">Sign my guestbook</a></p>
           <div style="margin-top:12px;">
-            <img src="me.jpg" alt="Photo of Nicholas De Leon" style="max-width:100%; border:2px solid #333; border-radius:6px; box-shadow: var(--shadow);" />
+            <img src="me.jpg" alt="Photo of Nicholas De Leon" style="max-width:100%; border:2px solid #333; box-shadow: var(--shadow);" />
           </div>
+
+          <h3 style="margin-top:12px">Visitors</h3>
+          <div class="counter" id="visitor-counter"></div>
         </aside>
 
         <!-- MAIN -->
@@ -202,65 +235,61 @@
           <div class="hero">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">Arizona Sun</title>
-  <desc id="desc">A bright yellow sun with subtle glow and rays</desc>
-  <defs>
-    <!-- radial glow -->
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FFE066" stop-opacity="0.9"/>
-      <stop offset="70%" stop-color="#FFD54A" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#FFC400" stop-opacity="0.15"/>
-    </radialGradient>
-    <!-- ray gradient -->
-    <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFD54A" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#FFC400" stop-opacity="0.0"/>
-    </linearGradient>
-  </defs>
+  <desc id="desc">A bright yellow sun with rays</desc>
 
   <!-- rays -->
   <g transform="translate(64 64)">
-    <!-- 16 rays evenly spaced -->
     <g>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(22.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(45)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(67.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(90)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(112.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(135)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(157.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(180)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(202.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(225)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(247.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(270)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(292.5)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(315)"/>
-      <rect x="-3" y="-60" width="6" height="24" fill="url(#ray)" rx="3" transform="rotate(337.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(22.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(45)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(67.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(90)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(112.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(135)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(157.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(180)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(202.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(225)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(247.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(270)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(292.5)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(315)"/>
+      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(337.5)"/>
     </g>
   </g>
 
-  <!-- sun disk + glow -->
-  <circle cx="64" cy="64" r="40" fill="url(#glow)"/>
+  <!-- sun disk — flat fill, no glow -->
   <circle cx="64" cy="64" r="32" fill="#FFD54A"/>
 </svg>
 
 
             <div>
               <h2>Projects, experiments & more.</h2>
-              <p style="margin:0">Reporter by day, member of the technical staff by night. Swapped NYC for the desert. Trying to build fun stuff. 
+              <p style="margin:0">Reporter by day, member of the technical staff by night. Swapped NYC for the desert. Trying to build fun stuff.
                 <strong>Best viewed in Netscape 4.0 at 800×600</strong> 🌵
               </p>
             </div>
           </div>
 
+          <hr class="divider">
+
           <section class="projects" aria-label="Projects">
             <article class="card">
-              <h4>PS2 Analog Firmware for Reflex Adapt</h4>
-              <div class="meta">Hardware • Firmware • Gaming</div>
-              <p>Custom firmware for the <a href="https://misteraddons.com/products/reflex-adapt">Reflex Adapt</a> retro controller adapter that adds PS2 analog button support, specifically optimized for MGS3. Click the button below, then Code -> Download Zip, then flash with the official <a href="https://www.example.com">Relfex Updater</a> (replace the stock manifest with mine). Read the readme because there is imporant information in there!</p>
+              <h4>Tucson Daily Brief</h4>
+              <div class="meta">AI • Local News • 2026</div>
+              <p>An AI-powered local news pipeline for Tucson, Arizona. Automatically generates daily news briefings available as a website, podcast (<a href="https://podcasts.apple.com/us/podcast/tucson-daily-brief/id1878173070" target="_blank" rel="noopener">Apple Podcasts</a>, <a href="https://www.youtube.com/@tucsondailybrief" target="_blank" rel="noopener">YouTube</a>), and more.</p>
               <div class="btns">
-                <a class="btn" href="https://github.com/daylayown/Reflex_PS2" target="_blank" rel="noopener">Download Firmware</a>
+                <a class="btn" href="https://tucsondailybrief.com" target="_blank" rel="noopener">Visit Site</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h4>Unannounced AI Project</h4>
+              <div class="meta">AI • Sports • WIP</div>
+              <p>A sports-related project that builds on the AI automation work behind Tucson Daily Brief. More details soon.</p>
+              <div class="btns">
+                <a class="btn" href="#" aria-disabled="true">Visit site (soon)</a>
               </div>
             </article>
 
@@ -274,6 +303,15 @@
             </article>
 
             <article class="card">
+              <h4>PS2 Analog Firmware for Reflex Adapt</h4>
+              <div class="meta">Hardware • Firmware • Gaming</div>
+              <p>Custom firmware for the <a href="https://misteraddons.com/products/reflex-adapt">Reflex Adapt</a> retro controller adapter that adds PS2 analog button support, specifically optimized for MGS3. Click the button below, then Code -> Download Zip, then flash with the official <a href="https://www.example.com">Reflex Updater</a> (replace the stock manifest with mine). Read the readme because there is important information in there!</p>
+              <div class="btns">
+                <a class="btn" href="https://github.com/daylayown/Reflex_PS2" target="_blank" rel="noopener">Download Firmware</a>
+              </div>
+            </article>
+
+            <article class="card">
               <h4>Unannounced Gaming App</h4>
               <div class="meta">iOS • Swift • WIP</div>
               <p>A tool to help PC gamers. Coming soon. (I'm almost done I swear!)</p>
@@ -282,24 +320,9 @@
               </div>
             </article>
 
-            <article class="card">
-              <h4>Unannounced Budgeting App</h4>
-              <div class="meta">iOS • Humor • WIP</div>
-              <p>If I describe it someone will build it before I can. More details soon.</p>
-              <div class="btns">
-                <a class="btn" href="#" aria-disabled="true">Visit site (soon)</a>
-              </div>
-            </article>
-
-            <article class="card">
-              <h4>Uannounced Couples App for iOS</h4>
-              <div class="meta">iOS • Health • WIP</div>
-              <p>If I describe it someone will build it before I can. More details soon.</p>
-              <div class="btns">
-                <a class="btn" href="#" aria-disabled="true">Visit site (soon)</a>
-              </div>
-            </article>
           </section>
+
+          <hr class="divider">
 
           <!-- === BANGER ARTICLES (Top Hits Jukebox) === -->
 <section class="card" aria-label="Banger Articles">
@@ -316,18 +339,19 @@
   <ul class="starlist">
     <!-- EXAMPLES — replace with your own -->
     <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/broadband/using-starlink-to-get-high-speed-internet-service-a1191801174/">🚀 STARLINK to the Rescue! How I Finally Got FAST INTERNET in Rural Arizona!!!</a></li>
-    <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/internet/how-to-delete-emails-from-your-inbox-a1152128256/">💣 NUKE YOUR INBOX! How I Deleted 100,000 Gmail Emails in Just 2 DAYS!!!”</a></li>
+    <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/internet/how-to-delete-emails-from-your-inbox-a1152128256/">💣 NUKE YOUR INBOX! How I Deleted 100,000 Gmail Emails in Just 2 DAYS!!!"</a></li>
     <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/social-media/how-to-do-a-social-media-detox-a1146951774/">🚫 BYE-BYE, FACEBOOK! My EPIC Social Media DETOX Journey</a></li>
     <li><a target="_blank" rel="noopener" href="https://www.vice.com/en/article/phony-vpn-services-are-cashing-in-on-americas-war-on-privacy/">⚠️ BUSTED! My Wild Ride Inside a BIZARRE VPN SCAM</a></li>
   </ul>
 
   <div class="badges" style="margin-top:6px;">
-    <span class="badge-img">🏆 Editor’s Picks</span>
+    <span class="badge-img">🏆 Editor's Picks</span>
     <span class="badge-img">📰 Webzine Certified</span>
     <span class="badge-img">⭐ 5-Star Readability</span>
   </div>
 </section>
 
+          <hr class="divider">
 
           <div class="badges">
             <div class="badge-img">🌐 Powered by HTML 3.2*</div>
@@ -339,17 +363,26 @@
       </div>
     </section>
 
+    <hr style="border:none; border-top:3px ridge #003366; margin:0;">
     <footer class="wrap" style="padding:10px 0 24px; display:flex; justify-content:space-between; align-items:center; color:#b3bcc6;">
       <span>© <span id="year"></span> Nicholas De Leon — Made with ❤️ in Arizona.</span>
-      
+
     </footer>
   </div>
 
-  
+
 
   <script>
     // Auto year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fake visitor counter — seeded from date so it looks consistent per-day
+    (function(){
+      var d = new Date();
+      var seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+      var count = 1337 + (seed % 4096);
+      document.getElementById('visitor-counter').textContent = 'You are visitor #' + count.toLocaleString();
+    })();
 
     // Easter egg: pretend modern mode (just removes some gradients)
     </script>
