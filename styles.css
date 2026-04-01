@@ -1,3 +1,6 @@
+/* === FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 /* === RESET & BASE === */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -6,21 +9,23 @@
 }
 
 :root {
-  --text: #1a1a1a;
-  --text-secondary: #555;
-  --bg: #ffffff;
-  --bg-alt: #f8f8f8;
-  --border: #e0e0e0;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --radius: 8px;
+  --text: #2b2520;
+  --text-secondary: #6b5e54;
+  --bg: #faf8f5;
+  --bg-alt: #f2eeea;
+  --border: #e4ded7;
+  --accent: #b45309;
+  --accent-hover: #92400e;
+  --accent-subtle: rgba(180, 83, 9, 0.08);
+  --shadow-sm: 0 1px 3px rgba(43,37,32,0.06), 0 1px 2px rgba(43,37,32,0.04);
+  --shadow-md: 0 4px 16px rgba(43,37,32,0.08), 0 2px 4px rgba(43,37,32,0.04);
+  --shadow-lg: 0 12px 32px rgba(43,37,32,0.1);
+  --radius: 6px;
   --max-width: 860px;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.7;
   color: var(--text);
@@ -28,13 +33,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, .nav-brand {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
+  transition: color 0.2s;
 }
 a:hover {
   color: var(--accent-hover);
-  text-decoration: underline;
 }
 
 img {
@@ -50,10 +59,17 @@ img {
   padding: 0 24px;
 }
 
+/* === FADE IN === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* === NAV === */
 .nav {
   border-bottom: 1px solid var(--border);
-  padding: 16px 0;
+  padding: 20px 0;
+  background: var(--bg);
 }
 .nav .container {
   display: flex;
@@ -63,10 +79,10 @@ img {
   gap: 12px;
 }
 .nav-brand {
-  font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--text);
   text-decoration: none;
+  letter-spacing: -0.01em;
 }
 .nav-brand:hover {
   color: var(--text);
@@ -74,7 +90,7 @@ img {
 }
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   align-items: center;
   list-style: none;
 }
@@ -82,6 +98,21 @@ img {
   color: var(--text-secondary);
   font-size: 15px;
   font-weight: 500;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
 }
 .nav-links a:hover {
   color: var(--text);
@@ -93,48 +124,65 @@ img {
 
 /* === HERO === */
 .hero {
-  padding: 64px 0 48px;
+  padding: 72px 0 56px;
+  animation: fadeUp 0.6s ease both;
 }
 .hero-content {
   display: flex;
-  gap: 32px;
+  gap: 36px;
   align-items: center;
 }
 .hero-photo {
-  width: 140px;
-  height: 140px;
+  width: 148px;
+  height: 148px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+  border: 3px solid var(--bg);
+  outline: 1px solid var(--border);
 }
 .hero h1 {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 4px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
 }
 .hero .subtitle {
-  font-size: 18px;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
+  font-size: 17px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 .hero .bio {
   color: var(--text-secondary);
   font-size: 15px;
+  line-height: 1.7;
 }
 
 /* === SECTIONS === */
 section {
-  padding: 48px 0;
+  padding: 52px 0;
+  animation: fadeUp 0.6s ease both;
 }
 section + section {
   border-top: 1px solid var(--border);
 }
 
 .section-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 8px;
 }
 
 /* === PROJECT CARDS === */
@@ -146,33 +194,45 @@ section + section {
 .project-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 24px;
   background: var(--bg);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 .project-card:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: rgba(180, 83, 9, 0.2);
 }
 .project-card h3 {
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
 .project-meta {
-  font-size: 13px;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
 }
 .project-card p {
   font-size: 15px;
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  line-height: 1.65;
 }
 .project-link {
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: gap 0.2s ease;
+}
+.project-link:hover {
+  text-decoration: none;
 }
 
 /* === WRITING LIST === */
@@ -180,8 +240,12 @@ section + section {
   list-style: none;
 }
 .writing-list li {
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
+  transition: padding-left 0.2s ease;
+}
+.writing-list li:hover {
+  padding-left: 4px;
 }
 .writing-list li:last-child {
   border-bottom: none;
@@ -189,77 +253,94 @@ section + section {
 .writing-list a {
   font-weight: 500;
 }
+.writing-list a:hover {
+  text-decoration: none;
+}
 .writing-pub {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-secondary);
-  margin-left: 4px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  opacity: 0.7;
 }
 
 /* === CTA BANNER === */
 .cta-banner {
-  background: var(--bg-alt);
+  background: var(--accent-subtle);
+  border: 1px solid rgba(180, 83, 9, 0.12);
   border-radius: var(--radius);
-  padding: 32px;
+  padding: 36px;
   text-align: center;
   margin: 16px 0;
 }
 .cta-banner p {
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  font-size: 15px;
 }
 .cta-banner a {
   font-weight: 600;
+  font-size: 15px;
 }
 
 /* === SPEAKING PAGE === */
 .speaking-hero {
-  padding: 64px 0 32px;
+  padding: 72px 0 36px;
+  animation: fadeUp 0.6s ease both;
 }
 .speaking-hero h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 .speaking-hero .subtitle {
   font-size: 18px;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
+  max-width: 640px;
 }
 
 .about-section {
   display: flex;
-  gap: 28px;
+  gap: 32px;
   align-items: flex-start;
 }
 .about-photo {
-  width: 160px;
-  height: 160px;
+  width: 168px;
+  height: 168px;
   border-radius: var(--radius);
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: var(--shadow-md);
 }
 .about-text p {
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: 15px;
+  line-height: 1.7;
 }
 
 .talk-card {
-  padding: 20px 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--border);
 }
 .talk-card:last-child {
   border-bottom: none;
 }
 .talk-card h3 {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
   color: var(--text);
+  letter-spacing: -0.01em;
 }
 .talk-card p {
   font-size: 15px;
   color: var(--text-secondary);
+  line-height: 1.7;
 }
 .talks-intro {
   font-size: 15px;
@@ -273,39 +354,47 @@ section + section {
   gap: 24px;
 }
 .audience-list li {
-  padding: 4px 0;
+  padding: 6px 0;
   font-size: 15px;
   color: var(--text-secondary);
 }
 .audience-list li::before {
-  content: "\2022";
-  color: var(--accent);
-  font-weight: 700;
-  margin-right: 8px;
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .appearances-placeholder {
   background: var(--bg-alt);
+  border: 1px dashed var(--border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 28px;
   color: var(--text-secondary);
   font-size: 15px;
   font-style: italic;
 }
 
 .booking-section {
-  background: var(--bg-alt);
+  background: var(--accent-subtle);
+  border: 1px solid rgba(180, 83, 9, 0.12);
   border-radius: var(--radius);
-  padding: 32px;
+  padding: 36px;
 }
 .booking-section p {
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: 15px;
+  line-height: 1.7;
 }
 .booking-email {
   display: inline-block;
-  font-size: 17px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
   font-weight: 600;
   margin: 8px 0;
 }
@@ -313,7 +402,7 @@ section + section {
 /* === FOOTER === */
 .footer {
   border-top: 1px solid var(--border);
-  padding: 24px 0;
+  padding: 28px 0;
   margin-top: 16px;
 }
 .footer .container {
@@ -324,20 +413,28 @@ section + section {
   gap: 8px;
 }
 .footer-text {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
 }
 .footer-links {
   display: flex;
-  gap: 16px;
+  gap: 20px;
 }
 .footer-links a {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--accent);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 640px) {
+  .hero {
+    padding: 48px 0 36px;
+  }
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -347,7 +444,11 @@ section + section {
     height: 120px;
   }
   .hero h1 {
-    font-size: 24px;
+    font-size: 26px;
+  }
+  .section-title::after {
+    margin-left: auto;
+    margin-right: auto;
   }
   .about-section {
     flex-direction: column;
@@ -365,13 +466,16 @@ section + section {
     text-align: center;
   }
   .nav-links {
-    gap: 16px;
+    gap: 20px;
+  }
+  .speaking-hero {
+    padding: 48px 0 28px;
   }
   .speaking-hero h1 {
-    font-size: 26px;
+    font-size: 28px;
   }
   .booking-section,
   .cta-banner {
-    padding: 24px 20px;
+    padding: 28px 20px;
   }
 }
