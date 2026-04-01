@@ -3,182 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DAYLAYOWN.ORG — Nicholas De Leon</title>
-  <meta name="description" content="Projects, experiments, and assorted web stuff by Nicholas De Leon." />
-
-  <!-- Open Graph / Twitter for nicer shares -->
-  <meta property="og:title" content="DAYLAYOWN.ORG — Nicholas De Leon" />
-  <meta property="og:description" content="Projects, experiments, and assorted web stuff by Nicholas De Leon." />
+  <title>Nicholas De Leon — Senior Reporter, Consumer Reports</title>
+  <meta name="description" content="Nicholas De Leon is a Senior Reporter at Consumer Reports covering AI, technology, and consumer electronics. Projects, writing, and speaking." />
+  <meta property="og:title" content="Nicholas De Leon" />
+  <meta property="og:description" content="Senior Reporter at Consumer Reports. Projects, writing, and speaking." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daylayown.org" />
   <meta name="twitter:card" content="summary" />
-
-  <style>
-    /* === ARIZONA FLAG COLORS === */
-    :root{
-      --bg1:#000a1a;   /* deep blue based on flag blue */
-      --bg2:#002664;   /* Arizona flag blue */
-      --ink:#FED700;   /* Arizona flag yellow */
-      --ink2:#FED700;  /* Arizona flag yellow */
-      --hot:#BB133E;   /* Arizona flag red */
-      --link:#CE5C17;  /* Arizona flag copper/orange */
-      --paper:#0b0b14; /* dark blue card */
-      --grid:#003366;  /* blue borders */
-      --shadow: 0 8px 24px rgba(0,0,0,.6);
-    }
-
-    /* Flat dark blue + tiled starfield pattern */
-    body{
-      margin:0;
-      color:#e9edf1;
-      font: 16px/1.6 "Times New Roman", Times, serif;
-      background-color: #000a1a;
-      background-image:
-        repeating-radial-gradient(circle at 17% 32%, #fff 0px, #fff 1px, transparent 1px, transparent 100px),
-        repeating-radial-gradient(circle at 63% 18%, #fff 0px, #fff 1px, transparent 1px, transparent 140px),
-        repeating-radial-gradient(circle at 91% 67%, rgba(255,255,255,.7) 0px, rgba(255,255,255,.7) 1px, transparent 1px, transparent 120px),
-        repeating-radial-gradient(circle at 38% 82%, rgba(255,255,255,.5) 0px, rgba(255,255,255,.5) 1px, transparent 1px, transparent 90px),
-        repeating-radial-gradient(circle at 72% 44%, rgba(254,215,0,.6) 0px, rgba(254,215,0,.6) 1px, transparent 1px, transparent 160px);
-    }
-
-    a{ color: var(--link); text-decoration: underline; text-decoration-thickness: 2px; }
-    a:hover{ color: #FED700; }
-
-    h1, h2, h4{ font-family: "Courier New", Courier, monospace; }
-
-    .wrap{ max-width: 980px; margin: 0 auto; padding: 18px; }
-
-    /* Top banner: flat blue + diagonal stripes */
-    .banner{
-      border: 4px ridge var(--grid);
-      background:
-        repeating-linear-gradient(45deg, rgba(254,215,0,.08) 0 8px, rgba(0,0,0,0) 8px 16px),
-        #002664;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .banner h1{
-      margin:0; padding: 14px 14px 8px;
-      font-size: clamp(20px, 3.2vw, 34px);
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 0 #000;
-    }
-
-    /* CSS marquee — Comic Sans for max Geocities energy */
-    .marquee{
-      white-space: nowrap;
-      overflow: hidden;
-      background: #FED700;
-      color: #000;
-      font-family: "Comic Sans MS", cursive;
-      font-weight: 700;
-    }
-    .marquee span{
-      display:inline-block; padding:8px 0;
-      animation: slide 22s linear infinite;
-    }
-    @keyframes slide{ from{ transform: translateX(100%);} to{ transform: translateX(-100%);} }
-
-    /* Spinning sun animation */
-    @keyframes spin{ from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
-
-    /* Fake window chrome */
-    .window{
-      margin-top:16px;
-      border: 2px solid var(--grid);
-      overflow: hidden; box-shadow: var(--shadow);
-      background: var(--paper);
-    }
-    .titlebar{
-      display:flex; align-items:center; gap:8px; padding:8px 10px; background: linear-gradient(#002664, #001a44);
-      border-bottom:1px solid #000;
-    }
-    .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; border: 1px outset; }
-    .dot.red{ background:#ff5f57; }
-    .dot.amber{ background:#febc2e; }
-    .dot.green{ background:#28c840; }
-    .titletext{ font-weight:700; letter-spacing:.3px; }
-
-    .content{ display:grid; grid-template-columns: 260px 1fr; gap:12px; padding:14px; }
-    @media (max-width: 740px){ .content{ grid-template-columns: 1fr; } }
-
-    /* Sidebar like a 90s table cell */
-    .side{
-      border:2px ridge #003366; padding:12px; background: #001022;
-    }
-    .side h3{
-      margin:0 0 6px 0; font-size:16px; color: var(--ink2); text-shadow:1px 1px 0 #000;
-    }
-    .badge{
-      display:inline-block; padding:.15rem .45rem; border:1px inset #43437a; margin:3px 3px 6px 0; background:#0a0a1a; font-size:12px;
-    }
-    .counter{
-      margin-top: 8px; display:inline-block; padding:4px 8px; font-family: "Courier New", Courier, monospace; font-weight:700; font-size:14px; background:#000; color:#0f0; border:2px inset #333;
-    }
-
-    .main{
-      border:2px groove #003366; padding:12px; background: #000a1a;
-    }
-    .hero{
-      display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom: 10px;
-    }
-    .hero svg{ width:128px; height:128px; border:2px solid #333; box-shadow: var(--shadow); background: #0b0b0b; animation: spin 12s linear infinite; }
-    .hero h2{ margin:0; font-size: clamp(18px, 2.6vw, 26px); color: var(--ink); text-shadow: 2px 2px 0 #000; }
-
-    /* Beveled section divider */
-    hr.divider{
-      border: none;
-      border-top: 3px ridge #003366;
-      margin: 14px 0;
-    }
-
-    /* Project list with chunky borders */
-    .projects{ display:grid; grid-template-columns: 1fr; gap:12px; }
-    .card{
-      border: 3px ridge #003366; background: #001a33; padding: 12px; position:relative;
-    }
-    .card h4{ margin:0 0 6px; font-size:18px; color: var(--ink2); text-shadow: 1px 1px 0 #000; }
-    .meta{ font-size:12px; opacity:.85; margin-bottom:6px; }
-    .btns{ display:flex; gap:8px; flex-wrap:wrap; }
-    .btn{
-      display:inline-block; border:3px outset #003366; background:#002664; color:#FED700; padding:6px 10px; text-decoration:none; font-weight:700;
-    }
-    .btn:hover{ background:#003388; color:#fff; }
-    .btn:active{ border-style: inset; }
-    /* Style for disabled buttons to make them look inactive */
-    .btn[aria-disabled="true"]{
-      background: repeating-linear-gradient(
-        -45deg,
-        #0b1a22,
-        #0b1a22 4px,
-        #15242c 4px,
-        #15242c 8px
-      );
-      color: #789;
-      pointer-events: none; /* Make the link unclickable */
-    }
-
-    /* Tiny ticker for Banger Articles */
-    .tiny-ticker{
-      background: #FED700;
-      color: #000;
-      font-family: "Comic Sans MS", cursive;
-      font-weight: 700;
-      font-size: 12px;
-      padding: 4px 8px;
-      margin: 6px 0;
-      text-align: center;
-    }
-
-    /* Star list */
-    .starlist{ padding-left: 20px; }
-    .starlist li{ margin-bottom: 4px; }
-
-    /* Footer badges */
-    .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-    .badge-img{ font-size:12px; border:1px inset #333; padding:6px 8px; background:#0a0a1a; box-shadow: inset 0 0 0 1px #222; }
-
-    </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -187,204 +19,106 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2V29BC0M8K');
 </script>
 
 <body>
-  <div class="wrap">
-    <div class="banner" role="img" aria-label="Daylayown decorative banner">
-      <h1>DAYLAYOWN.ORG — <span style="color:var(--hot)">Nicholas De Leon</span></h1>
-      <div class="marquee" aria-hidden="true">
-        <span>🚧 Under Construction • Welcome to my personal webzone • Built with love in Arizona • No slop, only signal • Add to bookmarks!!! 🚧 Under Construction • Welcome to my personal webzone • Built with love in Arizona • No slop, only signal • Add to bookmarks!!! </span>
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-brand">Nicholas De Leon</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
+        <li><a href="mailto:nicholas@daylayown.org">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <img src="me.jpg" alt="Nicholas De Leon" class="hero-photo" />
+        <div>
+          <h1>Nicholas De Leon</h1>
+          <p class="subtitle">Senior Reporter, Consumer Reports</p>
+          <p class="bio">Covering AI, laptops, WiFi, and consumer technology. Nearly 20 years in tech journalism at Consumer Reports, TechCrunch, Vice, Gizmodo, and News Corp. Based in southern Arizona.</p>
+        </div>
       </div>
     </div>
+  </header>
 
-    <section class="window" aria-label="Main content window">
-      <div class="titlebar">
-        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
-        <span class="titletext">File — Edit — View — Favorites — Help</span>
+  <section>
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>Tucson Daily Brief</h3>
+          <div class="project-meta">AI &middot; Local News &middot; 2026</div>
+          <p>An AI-powered local news pipeline for Tucson, Arizona. Automatically generates daily news briefings available as a website, podcast (<a href="https://podcasts.apple.com/us/podcast/tucson-daily-brief/id1878173070" target="_blank" rel="noopener">Apple Podcasts</a>, <a href="https://www.youtube.com/@tucsondailybrief" target="_blank" rel="noopener">YouTube</a>), and more.</p>
+          <a class="project-link" href="https://tucsondailybrief.com" target="_blank" rel="noopener">Visit site &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Unannounced AI Project</h3>
+          <div class="project-meta">AI &middot; Sports &middot; In Progress</div>
+          <p>A sports-related project that builds on the AI automation work behind Tucson Daily Brief. More details soon.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>ESPN DTC FAQ</h3>
+          <div class="project-meta">Web &middot; Interactive &middot; 2025</div>
+          <p>A simple interactive explainer for ESPN's new direct-to-consumer bundle, tuned for WWE fans.</p>
+          <a class="project-link" href="https://espndtcfaq.com" target="_blank" rel="noopener">Visit site &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <h3>PS2 Analog Firmware for Reflex Adapt</h3>
+          <div class="project-meta">Hardware &middot; Firmware &middot; Gaming</div>
+          <p>Custom firmware for the <a href="https://misteraddons.com/products/reflex-adapt" target="_blank" rel="noopener">Reflex Adapt</a> retro controller adapter that adds PS2 analog button support, optimized for MGS3.</p>
+          <a class="project-link" href="https://github.com/daylayown/Reflex_PS2" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Unannounced Gaming App</h3>
+          <div class="project-meta">iOS &middot; Swift &middot; In Progress</div>
+          <p>A tool to help PC gamers. Coming soon.</p>
+        </div>
+
       </div>
-      <div class="content">
-        <!-- SIDEBAR -->
-        <aside class="side" aria-label="Sidebar">
-          <h3>Quick Links</h3>
-          <div>
-            <a class="badge" href="https://x.com/nicholasadeleon" target="_blank" rel="noopener">X/Twitter</a>
-            <a class="badge" href="https://www.linkedin.com/in/nicholas-de-leon-3b5b6a9/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="badge" href="https://www.instagram.com/daylayownphoto" target="_blank" rel="noopener">Instagram</a>
-            <a class="badge" href="mailto:hello@daylayown.org">Email me</a>
-          </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="container">
+      <h2 class="section-title">Selected Writing</h2>
+      <ul class="writing-list">
+        <li><a href="https://www.consumerreports.org/electronics/broadband/using-starlink-to-get-high-speed-internet-service-a1191801174/" target="_blank" rel="noopener">Using Starlink to Get High-Speed Internet Service</a><span class="writing-pub">Consumer Reports</span></li>
+        <li><a href="https://www.consumerreports.org/electronics/internet/how-to-delete-emails-from-your-inbox-a1152128256/" target="_blank" rel="noopener">How to Delete Emails From Your Inbox</a><span class="writing-pub">Consumer Reports</span></li>
+        <li><a href="https://www.consumerreports.org/electronics/social-media/how-to-do-a-social-media-detox-a1146951774/" target="_blank" rel="noopener">How to Do a Social Media Detox</a><span class="writing-pub">Consumer Reports</span></li>
+        <li><a href="https://www.vice.com/en/article/phony-vpn-services-are-cashing-in-on-americas-war-on-privacy/" target="_blank" rel="noopener">Phony VPN Services Are Cashing In on America's War on Privacy</a><span class="writing-pub">Vice</span></li>
+      </ul>
+    </div>
+  </section>
 
-          <h3 style="margin-top:12px">Web Ring</h3>
-          <p style="margin:6px 0">⬅ <a href="https://www.visittucson.org/" target="_blank" rel="noopener">Visit Tucson</a> | <a href="https://www.nps.gov/sagu/index.htm" target="_blank" rel="noopener">Saguaro National Park</a> | <a href="https://www.visitarizona.com" target="_blank" rel="noopener">Visit Arizona</a> ➡</p>
-
-          <h3 style="margin-top:12px">Guestbook</h3>
-          <p><a href="mailto:guestbook@daylayown.org?subject=Guestbook%20entry">Sign my guestbook</a></p>
-          <div style="margin-top:12px;">
-            <img src="me.jpg" alt="Photo of Nicholas De Leon" style="max-width:100%; border:2px solid #333; box-shadow: var(--shadow);" />
-          </div>
-
-          <h3 style="margin-top:12px">Visitors</h3>
-          <div class="counter" id="visitor-counter"></div>
-        </aside>
-
-        <!-- MAIN -->
-        <main class="main" id="main">
-          <div class="hero">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">Arizona Sun</title>
-  <desc id="desc">A bright yellow sun with rays</desc>
-
-  <!-- rays -->
-  <g transform="translate(64 64)">
-    <g>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(22.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(45)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(67.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(90)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(112.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(135)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(157.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(180)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(202.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(225)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(247.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(270)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(292.5)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(315)"/>
-      <rect x="-4" y="-60" width="8" height="24" fill="#FFD54A" transform="rotate(337.5)"/>
-    </g>
-  </g>
-
-  <!-- sun disk — flat fill, no glow -->
-  <circle cx="64" cy="64" r="32" fill="#FFD54A"/>
-</svg>
-
-
-            <div>
-              <h2>Projects, experiments & more.</h2>
-              <p style="margin:0">Reporter by day, member of the technical staff by night. Swapped NYC for the desert. Trying to build fun stuff.
-                <strong>Best viewed in Netscape 4.0 at 800×600</strong> 🌵
-              </p>
-            </div>
-          </div>
-
-          <hr class="divider">
-
-          <section class="projects" aria-label="Projects">
-            <article class="card">
-              <h4>Tucson Daily Brief</h4>
-              <div class="meta">AI • Local News • 2026</div>
-              <p>An AI-powered local news pipeline for Tucson, Arizona. Automatically generates daily news briefings available as a website, podcast (<a href="https://podcasts.apple.com/us/podcast/tucson-daily-brief/id1878173070" target="_blank" rel="noopener">Apple Podcasts</a>, <a href="https://www.youtube.com/@tucsondailybrief" target="_blank" rel="noopener">YouTube</a>), and more.</p>
-              <div class="btns">
-                <a class="btn" href="https://tucsondailybrief.com" target="_blank" rel="noopener">Visit Site</a>
-              </div>
-            </article>
-
-            <article class="card">
-              <h4>Unannounced AI Project</h4>
-              <div class="meta">AI • Sports • WIP</div>
-              <p>A sports-related project that builds on the AI automation work behind Tucson Daily Brief. More details soon.</p>
-              <div class="btns">
-                <a class="btn" href="#" aria-disabled="true">Visit site (soon)</a>
-              </div>
-            </article>
-
-            <article class="card">
-              <h4>ESPN DTC FAQ</h4>
-              <div class="meta">Web • Interactive • 2025</div>
-              <p>A simple interactive explainer for ESPN's new direct‑to‑consumer bundle, tuned for WWE fans.</p>
-              <div class="btns">
-                <a class="btn" href="https://espndtcfaq.com" target="_blank" rel="noopener">Visit Site</a>
-              </div>
-            </article>
-
-            <article class="card">
-              <h4>PS2 Analog Firmware for Reflex Adapt</h4>
-              <div class="meta">Hardware • Firmware • Gaming</div>
-              <p>Custom firmware for the <a href="https://misteraddons.com/products/reflex-adapt">Reflex Adapt</a> retro controller adapter that adds PS2 analog button support, specifically optimized for MGS3. Click the button below, then Code -> Download Zip, then flash with the official <a href="https://www.example.com">Reflex Updater</a> (replace the stock manifest with mine). Read the readme because there is important information in there!</p>
-              <div class="btns">
-                <a class="btn" href="https://github.com/daylayown/Reflex_PS2" target="_blank" rel="noopener">Download Firmware</a>
-              </div>
-            </article>
-
-            <article class="card">
-              <h4>Unannounced Gaming App</h4>
-              <div class="meta">iOS • Swift • WIP</div>
-              <p>A tool to help PC gamers. Coming soon. (I'm almost done I swear!)</p>
-              <div class="btns">
-                <a class="btn" href="#" aria-disabled="true">Visit site (soon)</a>
-              </div>
-            </article>
-
-          </section>
-
-          <hr class="divider">
-
-          <!-- === BANGER ARTICLES (Top Hits Jukebox) === -->
-<section class="card" aria-label="Banger Articles">
-  <h4 style="display:flex;align-items:center;gap:8px;">
-    🔥 Fun Articles!
-  </h4>
-  <div class="meta">Hand-picked hits from the archives of my journalism career (guaranteed 97% typo-free)</div>
-
-  <!-- tiny ticker -->
-  <div class="tiny-ticker" aria-hidden="true">
-    <div>🚨 Fresh • Scroll for classics • Tell a friend! 🚨</div>
-  </div>
-
-  <ul class="starlist">
-    <!-- EXAMPLES — replace with your own -->
-    <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/broadband/using-starlink-to-get-high-speed-internet-service-a1191801174/">🚀 STARLINK to the Rescue! How I Finally Got FAST INTERNET in Rural Arizona!!!</a></li>
-    <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/internet/how-to-delete-emails-from-your-inbox-a1152128256/">💣 NUKE YOUR INBOX! How I Deleted 100,000 Gmail Emails in Just 2 DAYS!!!"</a></li>
-    <li><a target="_blank" rel="noopener" href="https://www.consumerreports.org/electronics/social-media/how-to-do-a-social-media-detox-a1146951774/">🚫 BYE-BYE, FACEBOOK! My EPIC Social Media DETOX Journey</a></li>
-    <li><a target="_blank" rel="noopener" href="https://www.vice.com/en/article/phony-vpn-services-are-cashing-in-on-americas-war-on-privacy/">⚠️ BUSTED! My Wild Ride Inside a BIZARRE VPN SCAM</a></li>
-  </ul>
-
-  <div class="badges" style="margin-top:6px;">
-    <span class="badge-img">🏆 Editor's Picks</span>
-    <span class="badge-img">📰 Webzine Certified</span>
-    <span class="badge-img">⭐ 5-Star Readability</span>
-  </div>
-</section>
-
-          <hr class="divider">
-
-          <div class="badges">
-            <div class="badge-img">🌐 Powered by HTML 3.2*</div>
-            <div class="badge-img">🕸️ Member: Arizona WebRing</div>
-            <div class="badge-img">🔒 Privacy‑Respecting (No Slop)</div>
-          </div>
-          <p style="font-size:11px; opacity:.8">*not really, but close enough</p>
-        </main>
+  <section>
+    <div class="container">
+      <div class="cta-banner">
+        <p>Available for speaking engagements on AI, technology, digital safety, and media literacy.</p>
+        <a href="speaking.html">Learn more about my talks &rarr;</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <hr style="border:none; border-top:3px ridge #003366; margin:0;">
-    <footer class="wrap" style="padding:10px 0 24px; display:flex; justify-content:space-between; align-items:center; color:#b3bcc6;">
-      <span>© <span id="year"></span> Nicholas De Leon — Made with ❤️ in Arizona.</span>
-
-    </footer>
-  </div>
-
-
-
-  <script>
-    // Auto year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fake visitor counter — seeded from date so it looks consistent per-day
-    (function(){
-      var d = new Date();
-      var seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
-      var count = 1337 + (seed % 4096);
-      document.getElementById('visitor-counter').textContent = 'You are visitor #' + count.toLocaleString();
-    })();
-
-    // Easter egg: pretend modern mode (just removes some gradients)
-    </script>
+  <footer class="footer">
+    <div class="container">
+      <span class="footer-text">&copy; <script>document.write(new Date().getFullYear())</script> Nicholas De Leon. Made in Arizona.</span>
+      <div class="footer-links">
+        <a href="https://x.com/nicholasadeleon" target="_blank" rel="noopener">X</a>
+        <a href="https://www.linkedin.com/in/nicholas-de-leon-3b5b6a9/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/daylayownphoto" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
