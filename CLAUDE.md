@@ -2,7 +2,7 @@
 
 ## What this is
 
-Personal landing page for [daylayown.org](https://daylayown.org) by Nicholas De Leon, Senior Reporter at Consumer Reports. Clean, professional multi-page site with a warm earth-tone palette.
+Personal landing page for [daylayown.org](https://daylayown.org) by Nicholas De Leon. Clean, professional multi-page site with a warm earth-tone palette. Includes a home page, a speaking page, and long-form writing samples under `/writing/<slug>/`.
 
 ## Hosting
 
@@ -15,12 +15,13 @@ Personal landing page for [daylayown.org](https://daylayown.org) by Nicholas De 
 ## File structure
 
 ```
-index.html        — Home: hero, projects, selected writing, speaking CTA, footer
-speaking.html     — Speaking page: bio, talks, audiences, booking
-styles.css        — Shared external stylesheet for both pages
-me.jpg            — Photo used on home hero and speaking page
-CNAME             — GitHub Pages custom domain (daylayown.org)
-cname.txt         — Local copy of the CNAME value
+index.html                    — Home: hero, projects, selected writing, personal writings, speaking CTA, footer
+speaking.html                 — Speaking page: bio, talks, audiences, booking
+styles.css                    — Shared external stylesheet for all pages
+writing/<slug>/index.html     — Long-form essay pages, served at /writing/<slug>/
+me.jpg                        — Photo used on home hero and speaking page
+CNAME                         — GitHub Pages custom domain (daylayown.org)
+cname.txt                     — Local copy of the CNAME value
 ```
 
 > `index - Copy.html` is a stale backup from an earlier design iteration — safe to ignore or delete.
@@ -53,12 +54,17 @@ Defined as CSS custom properties in `:root` (`styles.css`):
 - Responsive breakpoint at `640px`
 - Stacks hero content, switches photo to round/small, single-column audience list, centers nav
 
+### Article pages
+Long-form essays wrap content in `<article class="article">` → `<header class="article-header">` (H1 + `<p class="article-meta">` date) → `<div class="article-body">`. `.article-body` has styles for `<p>`, `<strong>`, `<em>`, `<a>`, `<ul>`/`<ol>`, and inline `<code>`. Each article uses the same nav + footer shell as the home/speaking pages (with relative paths `../../`).
+
 ## Rules
 
-- Keep the shared design system consistent across `index.html` and `speaking.html` — both load `styles.css`
+- Keep the shared design system consistent across `index.html`, `speaking.html`, and every `writing/<slug>/index.html` — all load `styles.css`
 - Preserve the warm earth-tone palette and DM Serif Display / DM Sans typography
 - Don't break Google Analytics or Open Graph/Twitter meta tags
 - Keep `CNAME` in place — removing it breaks the custom domain
 - Maintain the footer social icons (X, LinkedIn, Instagram) as inline SVGs
 - Mobile responsive behavior must still work at the 640px breakpoint
 - No build tools — plain HTML/CSS only, edited directly
+- New writing samples go at `writing/<slug>/index.html`. Use short, stable, human-readable slugs — no dates, no `-v2` suffixes, no random IDs. Add an entry to the "Personal Writings" section on the home page
+- **Talks on `speaking.html` must not be framed as Consumer Reports content.** Nicholas is a CR Senior Reporter, but his speaking engagements are personal and cannot be positioned as CR-backed. No titles like "A Consumer Reports Guide to X" or "What CR Wants You to Know"; no descriptions citing CR's methodology, testing, or coverage directly. Keep talks grounded in personal journalism experience. Factual employer mention in the About bio ("Senior Reporter at Consumer Reports") is fine; everything else should be decoupled
