@@ -39,7 +39,7 @@
     <div class="container">
       <header class="article-header">
         <h1>AI Isn't Free: How Prompt Caching Cut My API Bill by 57%</h1>
-        <p class="article-meta"><time datetime="2026-04-20">Published April 20, 2026</time></p>
+        <p class="article-meta"><time datetime="2026-03">Published March 2026</time></p>
       </header>
 
       <div class="article-body">
@@ -49,7 +49,7 @@
 
         <p>I get why this is a shock for a lot of people. But here's the thing: I've been paying per token from day one on Deep Dugout, my AI baseball simulation project, and managing that cost was one of the more interesting engineering challenges of the whole build. I want to share one specific technique &mdash; prompt caching &mdash; that cut my costs by 57%. If you're about to start paying for AI by the token for the first time, this is the single most impactful thing you can do.</p>
 
-        <p>For those who haven't seen my earlier post: Deep Dugout is a full baseball simulation where Claude makes every managerial decision &mdash; lineups, starting pitchers, bullpen calls &mdash; for all 30 MLB teams, grounded in real player data from FanGraphs and the MLB Stats API. I simulated a projected 2026 World Series, generated post-game articles and audio podcasts, and then broadcast all 15 Opening Day games live on Discord. Total API cost for the entire project: about $50.</p>
+        <p>For context: Deep Dugout is a full baseball simulation where Claude makes every managerial decision &mdash; lineups, starting pitchers, bullpen calls &mdash; for all 30 MLB teams, grounded in real player data from FanGraphs and the MLB Stats API. I simulated a projected 2026 World Series, generated post-game articles and audio podcasts, and then broadcast all 15 Opening Day games live on Discord. Total API cost for the entire project: about $50.</p>
 
         <p>That $50 figure is the part that surprises people. I made over 2,500 API calls across 86 baseball games. That's a lot of calls! So how on earth did it cost less than a decent dinner?</p>
 
