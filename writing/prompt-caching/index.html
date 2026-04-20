@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Isn't Free: How Prompt Caching Cut My API Bill by 57% — Nicholas De Leon</title>
+  <meta name="description" content="A one-line API parameter cut my Deep Dugout bill from $37 to $15.81. A practical guide to prompt caching for anyone new to per-token AI pricing." />
+  <meta property="og:title" content="AI Isn't Free: How Prompt Caching Cut My API Bill by 57%" />
+  <meta property="og:description" content="A one-line API parameter cut my Deep Dugout bill from $37 to $15.81. A practical guide to prompt caching for anyone new to per-token AI pricing." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://daylayown.org/writing/prompt-caching/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://daylayown.org/writing/prompt-caching/" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2V29BC0M8K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2V29BC0M8K');
+</script>
+
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a href="../../index.html" class="nav-brand">Nicholas De Leon</a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../speaking.html">Speaking</a></li>
+        <li><a href="mailto:nicholas@daylayown.org" title="Opens your email client">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="container">
+      <header class="article-header">
+        <h1>AI Isn't Free: How Prompt Caching Cut My API Bill by 57%</h1>
+        <p class="article-meta"><time datetime="2026-04-20">Published April 20, 2026</time></p>
+      </header>
+
+      <div class="article-body">
+        <p>AI isn't free. It never was &mdash; but a lot of people are finding that out for the first time this week.</p>
+
+        <p>Anthropic just announced that third-party tools like OpenClaw and Cline can no longer piggyback on Claude Pro and Max subscriptions. If you want to use Claude through these tools, you now pay per token, either through the API or through Anthropic's new "extra usage" bundles. The era of all-you-can-eat AI subscriptions quietly subsidizing heavy automation use? Over.</p>
+
+        <p>I get why this is a shock for a lot of people. But here's the thing: I've been paying per token from day one on Deep Dugout, my AI baseball simulation project, and managing that cost was one of the more interesting engineering challenges of the whole build. I want to share one specific technique &mdash; prompt caching &mdash; that cut my costs by 57%. If you're about to start paying for AI by the token for the first time, this is the single most impactful thing you can do.</p>
+
+        <p>For those who haven't seen my earlier post: Deep Dugout is a full baseball simulation where Claude makes every managerial decision &mdash; lineups, starting pitchers, bullpen calls &mdash; for all 30 MLB teams, grounded in real player data from FanGraphs and the MLB Stats API. I simulated a projected 2026 World Series, generated post-game articles and audio podcasts, and then broadcast all 15 Opening Day games live on Discord. Total API cost for the entire project: about $50.</p>
+
+        <p>That $50 figure is the part that surprises people. I made over 2,500 API calls across 86 baseball games. That's a lot of calls! So how on earth did it cost less than a decent dinner?</p>
+
+        <p>Prompt caching. And it is so, so much simpler than you probably think it is.</p>
+
+        <p>Here's the deal. Every time one of my AI managers makes a decision, the API call includes a big system prompt: the team's manager personality profile (built from real interviews and press conferences &mdash; Dave Roberts manages aggressively, Dan Wilson trusts his starters, Kevin Cash platoons everything), the full roster with player stats, and the response format instructions. That's about 3,100 tokens that are completely identical across every single call within a game.</p>
+
+        <p>Without caching, you're paying full price to send those same 3,100 tokens to Claude 20 to 30 times per game. You're essentially photocopying the same document and handing it over again and again and again, paying for a new photocopy each time. It's incredibly wasteful.</p>
+
+        <p>With prompt caching, you send it once at full price, and every subsequent call gets a 90% discount on those cached tokens. Claude says "oh I've already read this, got it" and you pay almost nothing to include it.</p>
+
+        <p>The implementation is almost comically simple. You add a single parameter &mdash; <code>cache_control: {"type": "ephemeral"}</code> &mdash; to the system prompt in your API call. That's it. One line of code. The cache persists for five minutes, which is more than enough time when your AI manager is making rapid-fire decisions throughout a baseball game.</p>
+
+        <p>The results across my 15-series batch run (86 games, 2,588 API calls):</p>
+
+        <ul>
+          <li>88% of all input tokens hit the cache</li>
+          <li>Without caching, the run would have cost about $37</li>
+          <li>With caching, it cost $15.81</li>
+          <li>That's a 57% reduction in total cost</li>
+        </ul>
+
+        <p>Now look &mdash; I'll be the first to admit that saving $21 is not going to change anyone's life. But the whole project cost $50! The percentage is the point. Scale those numbers up to whatever you're building &mdash; a chatbot, an AI agent, a content pipeline &mdash; and you're talking about real money. Anything where the "instructions" stay the same but the "questions" change is a candidate for this. And I would bet that describes the vast majority of what people are building with AI right now.</p>
+
+        <p>This mattered a lot less a month ago. When your Claude usage was bundled into a $20/month subscription, who cared about token efficiency? Nobody! You were already paying! But now that Anthropic is pushing everyone toward per-token billing, the people who understand their cost structure &mdash; and know tricks like this &mdash; are going to have a real advantage over the people who don't.</p>
+
+        <p>A few practical tips if you're new to this:</p>
+
+        <p>First, identify your static content. System prompts, persona definitions, format instructions, reference data &mdash; anything that doesn't change between calls is a caching candidate. In my case, the manager personality and roster data were obvious targets.</p>
+
+        <p>Second, put the static parts at the beginning of your prompt. This is important! The cache works on prefix matching, meaning Claude checks if the start of your new prompt matches something it's already seen. If your cacheable content is buried in the middle or sprinkled throughout, the cache won't hit. Front-load the stuff that doesn't change.</p>
+
+        <p>Third, keep your calls sequential within a session. The cache has a time-to-live of five minutes. If you're making calls in rapid succession &mdash; which most agents and pipelines do &mdash; you'll get excellent hit rates. My AI managers make decisions every few seconds during a game, so the cache was almost always warm.</p>
+
+        <p>Fourth, monitor your cache hits. The API returns a field called <code>cache_read_input_tokens</code> in the usage response. If that number is low relative to your total input tokens, something is wrong with your prompt structure and you should investigate.</p>
+
+        <p>I built an entire AI baseball universe &mdash; 200+ simulated games, 30 AI managers with distinct personalities, post-game journalism, audio podcasts, a live Discord broadcast &mdash; for $50. Prompt caching is a big reason why that number isn't $120.</p>
+
+        <p>AI costs are engineering problems, not just business problems. And now that we're all paying by the token? It's worth learning how to engineer them well.</p>
+
+        <p>Deep Dugout: <a href="https://www.deepdugout.com" target="_blank" rel="noopener">https://www.deepdugout.com</a></p>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="pronunciation-note">"De Leon" is pronounced "day-lay-own" &mdash; hence the domain!</p>
+    </div>
+    <div class="container">
+      <span class="footer-text">&copy; <span id="year"></span> Nicholas De Leon. Made in Arizona.</span>
+      <div class="footer-links">
+        <a href="https://x.com/nicholasadeleon" target="_blank" rel="noopener" aria-label="X (formerly Twitter)">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/nicholas-de-leon-3b5b6a9/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/daylayownphoto" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
