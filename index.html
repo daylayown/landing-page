@@ -3,174 +3,251 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nicholas De Leon — Senior Reporter, Consumer Reports</title>
-  <meta name="description" content="Nicholas De Leon is a Senior Reporter at Consumer Reports covering AI, technology, and consumer electronics. Projects, writing, and speaking." />
+  <title>Nicholas De Leon — Technology journalist who builds AI-powered newsrooms</title>
+  <meta name="description" content="Nicholas De Leon is a technology journalist who builds AI-powered newsrooms, including the Tucson Daily Brief and The Raytrace. Projects, reporting and essays." />
   <meta property="og:title" content="Nicholas De Leon" />
-  <meta property="og:description" content="Senior Reporter at Consumer Reports. Projects, writing, and speaking." />
+  <meta property="og:description" content="Technology journalist. I build AI-powered newsrooms: the Tucson Daily Brief, The Raytrace, Local News 123 and Deep Dugout." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://daylayown.org" />
+  <meta property="og:image" content="https://daylayown.org/me.jpg" />
   <meta name="twitter:card" content="summary" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V29BC0M8K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2V29BC0M8K');
+  </script>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2V29BC0M8K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-2V29BC0M8K');
-</script>
-
 <body>
-  <nav class="nav">
-    <div class="container">
-      <a href="index.html" class="nav-brand">Nicholas De Leon</a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="speaking.html">Speaking</a></li>
-        <li><a href="mailto:nicholas@daylayown.org" title="Opens your email client">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
 
   <header class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <img src="me.jpg" alt="Nicholas De Leon" class="hero-photo" />
-        <div>
-          <h1>Nicholas De Leon</h1>
-          <p class="subtitle">Senior Reporter, Consumer Reports</p>
-          <p class="bio">Covering AI, laptops, WiFi, and consumer technology. Nearly 20 years in tech journalism at Consumer Reports, TechCrunch, Vice, Gizmodo, and News Corp. Based in southern Arizona.</p>
+    <img class="hero-photo" src="me.jpg" alt="" />
+    <div class="wrap topbar">
+      <a class="brand" href="/">Nicholas De Leon</a>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#essays">Essays</a>
+        <a href="mailto:nicholas@daylayown.org">Contact</a>
+      </nav>
+    </div>
+    <div class="wrap hero-body">
+      <div class="hero-copy">
+        <h1>Nicholas De Leon</h1>
+        <p class="claim">Technology journalist. I build AI&#8209;powered newsrooms.</p>
+        <p class="bio">Senior Reporter at Consumer Reports, with nearly 20 years at Consumer Reports, TechCrunch, Vice, Gizmodo and News Corp. On my own time I build automated publications that read public records, meeting agendas and press releases, and turn them into sourced news every day.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="mailto:nicholas@daylayown.org">Email me</a>
+          <a class="btn btn-line" href="#projects">See the projects</a>
         </div>
       </div>
     </div>
   </header>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Working publications, not demos. Each one runs every day on a pipeline I designed, with a journalist's rules about sourcing written into the code.</p>
+      </div>
 
-        <div class="project-card">
-          <h3>Crosswording The Situation</h3>
-          <div class="project-meta">AI &middot; News &middot; Crosswords &middot; 2026</div>
-          <p>A daily mini crossword where every clue is tied to real current events. An automated pipeline scrapes hundreds of headlines overnight and uses AI to generate a fresh, news-driven puzzle each morning.</p>
-          <a class="project-link" href="https://crosswordingthesituation.com" target="_blank" rel="noopener">Visit site &rarr;</a>
+      <div class="projects">
+        <article class="project feature">
+          <a class="shot" href="https://tucsondailybrief.com" target="_blank" rel="noopener">
+            <span class="bar">tucsondailybrief.com</span>
+            <img src="img/projects/tucson-daily-brief.webp" alt="The Tucson Daily Brief homepage, with the day's lead story and a list of morning headlines" />
+          </a>
+          <div class="feature-text">
+            <div>
+              <h3>Tucson Daily Brief</h3>
+              <span class="status">Publishing daily</span>
+              <p>A one-person local newsroom for metro Tucson, free to read with no ads. Every morning Claude Opus reads about two dozen local sources and writes the Daily Brief, with every item linked to where it came from. The site previews the agendas of 14 local governments and school boards, and goes out as a podcast read by an AI clone of my voice, a weekly newsletter and a Spanish edition.</p>
+              <p>It also runs ChatTDB, which answers questions about Tucson using only the site's own archive, with citations; Who They Are, org charts of the area's elected and appointed officials; and daily checks of permits, liquor licenses and development filings that rarely get reported anywhere else.</p>
+              <p class="press">Covered by the <a href="https://reutersinstitute.politics.ox.ac.uk/news/inside-rise-ai-native-newsrooms-run-autonomous-agents" target="_blank" rel="noopener">Reuters Institute</a>, TWiT's <a href="https://twit.tv/shows/intelligent-machines/episodes/883" target="_blank" rel="noopener">Intelligent Machines</a> and <a href="https://twit.tv/shows/this-week-in-tech/episodes/1096" target="_blank" rel="noopener">This Week in Tech</a>, and <a href="https://www.kgun9.com/news/community-inspired-journalism/oro-valley/catalina-man-uses-ai-journalism-skills-to-create-free-tucson-news-site-linking-local-news-organizations" target="_blank" rel="noopener">KGUN 9</a>.</p>
+              <a class="visit" href="https://tucsondailybrief.com" target="_blank" rel="noopener">Visit tucsondailybrief.com</a>
+            </div>
+            <div class="panel">
+              <h4>The live AI reporter</h4>
+              <ul>
+                <li><strong>Shows up on its own.</strong> When a council or school board posts an agenda, it schedules itself to cover the meeting.</li>
+                <li><strong>Listens live.</strong> It joins whatever livestream the body uses, even Zoom or Teams, transcribes every word as it's spoken, and stops when the meeting adjourns.</li>
+                <li><strong>Drafts the story.</strong> Claude Opus writes a news report from the transcript.</li>
+                <li><strong>I edit and publish.</strong> I check every draft against the transcript before it goes live.</li>
+              </ul>
+              <p class="note">More than 70 meeting reports since March 2026.</p>
+            </div>
+          </div>
+          <div class="stories">
+            <h4>Some of our biggest stories</h4>
+            <div class="story-grid">
+              <a class="story" href="https://tucsondailybrief.com/in-depth/oro-valley-costco-contact.html" target="_blank" rel="noopener">
+                <span class="when">November 2026</span>
+                <span class="headline">Oro Valley Confirms Ongoing Contact With Costco</span>
+                <span class="dek">The town told us it first reached out to Costco four and a half years ago, and that contact is ongoing.</span>
+              </a>
+              <a class="story" href="https://tucsondailybrief.com/in-depth/fourth-avenue-maria-mazon.html" target="_blank" rel="noopener">
+                <span class="when">September 2026</span>
+                <span class="headline">Fourth Avenue Chef Maria Mazon: 'Let's Literally Get Together and Just Fix It'</span>
+                <span class="dek">A chef's Instagram plea about parking and safety, taken to City Hall. The mayor's office and city staff say they're reaching out to her.</span>
+              </a>
+              <a class="story" href="https://tucsondailybrief.com/in-depth/american-snout-butterflies.html" target="_blank" rel="noopener">
+                <span class="when">September 2026</span>
+                <span class="headline">What's the Deal With All the Butterflies on Tucson's Roads?</span>
+                <span class="dek">Why American snouts swarmed Oracle Road, told with ten years of iNaturalist sightings and county rain-gauge data.</span>
+              </a>
+              <a class="story" href="https://tucsondailybrief.com/in-depth/who-they-are.html" target="_blank" rel="noopener">
+                <span class="when">September 2026</span>
+                <span class="headline">A New Section: Who They Are</span>
+                <span class="dek">Org charts for every elected seat and top appointee in Pima County, Tucson, Oro Valley and Marana, linked to every report that names them.</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project feature">
+          <a class="shot" href="https://theraytrace.com" target="_blank" rel="noopener">
+            <span class="bar">theraytrace.com</span>
+            <img src="img/projects/the-raytrace.webp" alt="The Raytrace homepage, with a prism chart showing how many stories ran in each section today" />
+          </a>
+          <div class="feature-text">
+            <div>
+              <h3>The Raytrace</h3>
+              <span class="status">Launched October 2026</span>
+              <p>The next step after the Tucson Daily Brief: a video game news site where Claude Opus 5.5 works as the managing editor. Every hour the pipeline reads publishers' own posts, storefronts, financial and labor filings, and dozens of outlets, groups the coverage into stories, and traces each one back to whoever said it first.</p>
+              <p>Its first original story came from a studio's answers to one of the AI editor's requests for comment. The site also runs a daily discovery engine for overlooked indie games and a weekly newsletter, The Denoiser.</p>
+              <a class="visit" href="https://theraytrace.com" target="_blank" rel="noopener">Visit theraytrace.com</a>
+            </div>
+            <div class="panel">
+              <h4>What the AI editor does on its own</h4>
+              <ul>
+                <li><strong>Runs the news desk.</strong> It judges what's news, writes each story from the sources it's allowed to use, and sets the front page.</li>
+                <li><strong>Asks for comment.</strong> When a story is missing a company's side, it finds the press contact on the company's own website and drafts a request for comment in my inbox.</li>
+                <li><strong>Hunts down sources.</strong> When a story rests on a statement nobody published, it searches for the original, or messages me to track it down.</li>
+              </ul>
+              <p class="note">I review and send every request myself.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <a class="shot" href="https://localnews123.ai" target="_blank" rel="noopener">
+            <span class="bar">localnews123.ai</span>
+            <img src="img/projects/local-news-123.webp" alt="The Local News 123 landing page, with its waving newspaper mascot" />
+          </a>
+          <div>
+            <h3>Local News 123</h3>
+            <span class="status">In private beta</span>
+            <p>The Tucson Daily Brief, turned into a product anyone can run. Type in a town and it finds and verifies the community's official sources, monitors them around the clock, and drafts a cited daily edition for a local publisher to review and publish.</p>
+            <a class="visit" href="https://localnews123.ai" target="_blank" rel="noopener">Visit localnews123.ai</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <a class="shot" href="https://deepdugout.com" target="_blank" rel="noopener">
+            <span class="bar">deepdugout.com</span>
+            <img src="img/projects/deep-dugout.webp" alt="The Deep Dugout homepage, with scores from AI-managed matchups" />
+          </a>
+          <div>
+            <h3>Deep Dugout</h3>
+            <span class="status">AI-managed baseball</span>
+            <p>AI managers run all 30 MLB teams, making every lineup, pitching and bullpen call, and every decision is logged and explained. It doubles as a real-world test bench for new models, like Anthropic's Claude Fable 5 against OpenAI's GPT-5.6 Sol.</p>
+            <a class="visit" href="https://deepdugout.com" target="_blank" rel="noopener">Visit deepdugout.com</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="reporting">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Reporting</h2>
+        <p>A few favorites from nearly 20 years covering consumer technology.</p>
+      </div>
+      <div class="clips">
+        <div class="clip">
+          <div class="outlet">Consumer Reports, 2025</div>
+          <a href="https://www.consumerreports.org/electronics/artificial-intelligence/should-you-use-an-ai-browser-a2649165168/" target="_blank" rel="noopener">Should You Use an AI Browser Like ChatGPT Atlas?</a>
+          <p>AI browsers promise to automate web tasks but deliver little, while raising real security and privacy risks.</p>
         </div>
-
-        <div class="project-card">
-          <h3>Tucson Daily Brief</h3>
-          <div class="project-meta">AI &middot; Local News &middot; 2026</div>
-          <p>An AI-powered local news pipeline for Tucson, Arizona. Automatically generates daily news briefings available as a website, podcast (<a href="https://podcasts.apple.com/us/podcast/tucson-daily-brief/id1878173070" target="_blank" rel="noopener">Apple Podcasts</a>, <a href="https://www.youtube.com/@tucsondailybrief" target="_blank" rel="noopener">YouTube</a>), and more.</p>
-          <a class="project-link" href="https://tucsondailybrief.com" target="_blank" rel="noopener">Visit site &rarr;</a>
+        <div class="clip">
+          <div class="outlet">Consumer Reports, 2025</div>
+          <a href="https://www.consumerreports.org/electronics-computers/wireless-routers/the-juan-soto-of-routers-a8630945320/" target="_blank" rel="noopener">The Juan Soto of Routers</a>
+          <p>Rating WiFi routers by performance per dollar, modeled on baseball's wins above replacement.</p>
         </div>
-
-        <div class="project-card">
-          <h3>Deep Dugout</h3>
-          <div class="project-meta">AI &middot; Baseball &middot; 2026</div>
-          <p>A baseball simulation platform where autonomous AI agents manage all 30 MLB teams, making every tactical decision and generating complete editorial content &mdash; game recaps, press conferences, beat writer analysis, and audio narration. Built with the Anthropic Claude API, Astro, and real player data from FanGraphs.</p>
-          <a class="project-link" href="https://deepdugout.com" target="_blank" rel="noopener">Visit site &rarr;</a>
+        <div class="clip">
+          <div class="outlet">Consumer Reports, 2024</div>
+          <a href="https://www.consumerreports.org/electronics/broadband/using-starlink-to-get-high-speed-internet-service-a1191801174/" target="_blank" rel="noopener">Using Starlink to Get High-Speed Internet Service</a>
+          <p>A first-person test of Starlink at a rural Arizona home, through work, streaming and gaming.</p>
         </div>
-
-        <div class="project-card">
-          <h3>ESPN DTC FAQ</h3>
-          <div class="project-meta">Web &middot; Interactive &middot; 2025</div>
-          <p>A simple interactive explainer for ESPN's new direct-to-consumer bundle, tuned for WWE fans.</p>
-          <a class="project-link" href="https://espndtcfaq.com" target="_blank" rel="noopener">Visit site &rarr;</a>
+        <div class="clip">
+          <div class="outlet">Consumer Reports, 2023</div>
+          <a href="https://www.consumerreports.org/electronics/social-media/how-to-do-a-social-media-detox-a1146951774/" target="_blank" rel="noopener">How to Do a Social Media Detox</a>
+          <p>A four-step plan for cutting back on social media to make time for real life.</p>
         </div>
-
-        <div class="project-card">
-          <h3>PS2 Analog Firmware for Reflex Adapt</h3>
-          <div class="project-meta">Hardware &middot; Firmware &middot; Gaming</div>
-          <p>Custom firmware for the <a href="https://misteraddons.com/products/reflex-adapt" target="_blank" rel="noopener">Reflex Adapt</a> retro controller adapter that adds PS2 analog button support, optimized for MGS3.</p>
-          <a class="project-link" href="https://github.com/daylayown/Reflex_PS2" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <div class="clip">
+          <div class="outlet">Consumer Reports, 2022</div>
+          <a href="https://www.consumerreports.org/electronics/internet/how-to-delete-emails-from-your-inbox-a1152128256/" target="_blank" rel="noopener">How to Delete 100,000 Emails From Your Inbox</a>
+          <p>Mass-deleting a Gmail inbox in two days to dodge a storage subscription.</p>
         </div>
-
+        <div class="clip">
+          <div class="outlet">Vice, 2017</div>
+          <a href="https://www.vice.com/en/article/phony-vpn-services-are-cashing-in-on-americas-war-on-privacy/" target="_blank" rel="noopener">Phony VPN Services Are Cashing In on America's War on Privacy</a>
+          <p>A fake VPN that used hacked user data to scam people worried about ISP privacy rules.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Selected Writing</h2>
-      <ul class="writing-list">
+  <section id="essays">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Essays</h2>
+        <p>Notes from building these projects: what worked, what it cost, and what the models actually did.</p>
+      </div>
+      <ul class="essays">
         <li>
-          <a href="https://www.consumerreports.org/electronics/artificial-intelligence/should-you-use-an-ai-browser-a2649165168/" target="_blank" rel="noopener">Should You Use an AI Browser Like ChatGPT Atlas?</a><span class="writing-pub">Consumer Reports</span><span class="writing-year">2025</span>
-          <span class="writing-desc">A hands-on look at AI-powered browsers like ChatGPT Atlas and Perplexity Comet, which promise to automate web tasks but deliver little utility while raising serious security and privacy risks.</span>
+          <a href="writing/opus-4-7-vs-4-6/">Reasoning vs. Pattern-Matching: Claude Opus 4.7 vs. 4.6 Under Pressure</a>
+          <p>Two model versions managed a simulated World Series. The decision logs show what a 13% benchmark jump looks like in practice.</p>
         </li>
         <li>
-          <a href="https://www.consumerreports.org/electronics-computers/wireless-routers/the-juan-soto-of-routers-a8630945320/" target="_blank" rel="noopener">The Juan Soto of Routers</a><span class="writing-pub">Consumer Reports</span><span class="writing-year">2025</span>
-          <span class="writing-desc">A baseball-inspired approach to evaluating WiFi routers, using a performance-to-price ratio modeled on the concept of wins above replacement (WAR).</span>
+          <a href="writing/prompt-caching/">AI Isn't Free: How Prompt Caching Cut My API Bill by 57%</a>
+          <p>The one-line API setting that took Deep Dugout's bill from $37 to $15.81, explained for people new to per-token pricing.</p>
         </li>
         <li>
-          <a href="https://www.consumerreports.org/electronics/broadband/using-starlink-to-get-high-speed-internet-service-a1191801174/" target="_blank" rel="noopener">Using Starlink to Get High-Speed Internet Service</a><span class="writing-pub">Consumer Reports</span><span class="writing-year">2024</span>
-          <span class="writing-desc">A first-person test of Starlink satellite internet at a friend's rural Arizona home, putting it through work, streaming, and gaming.</span>
-        </li>
-        <li>
-          <a href="https://www.consumerreports.org/electronics/social-media/how-to-do-a-social-media-detox-a1146951774/" target="_blank" rel="noopener">How to Do a Social Media Detox</a><span class="writing-pub">Consumer Reports</span><span class="writing-year">2023</span>
-          <span class="writing-desc">A four-step personal plan for cutting back on Instagram, YouTube, and Twitter to reclaim time for exercise, reading, and real life.</span>
-        </li>
-        <li>
-          <a href="https://www.consumerreports.org/electronics/internet/how-to-delete-emails-from-your-inbox-a1152128256/" target="_blank" rel="noopener">How to Delete 100,000 Emails From Your Inbox</a><span class="writing-pub">Consumer Reports</span><span class="writing-year">2022</span>
-          <span class="writing-desc">A step-by-step guide to mass-deleting over 100,000 Gmail emails in two days to reclaim free storage and dodge a subscription fee.</span>
-        </li>
-        <li>
-          <a href="https://www.vice.com/en/article/phony-vpn-services-are-cashing-in-on-americas-war-on-privacy/" target="_blank" rel="noopener">Phony VPN Services Are Cashing In on America's War on Privacy</a><span class="writing-pub">Vice</span><span class="writing-year">2017</span>
-          <span class="writing-desc">An investigation into a fake VPN service that used hacked Plex and Boxee user data to scam people worried about new ISP privacy laws.</span>
+          <a href="writing/ai-reporter/">Building a Live-Meeting AI Reporter for $1.50 per Meeting</a>
+          <p>A pipeline that watches a government meeting stream, transcribes it live and drafts an AP-style story for an editor to review.</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Personal Writings</h2>
-      <ul class="writing-list">
-        <li>
-          <a href="writing/opus-4-7-vs-4-6/">Reasoning vs. Pattern-Matching: Claude Opus 4.7 vs. 4.6 Under Pressure</a><span class="writing-year">2026</span>
-          <span class="writing-desc">I pitted Claude Opus 4.7 against 4.6 in a 2026 World Series simulation and read the decision logs to see what a 13% benchmark jump actually looks like under pressure.</span>
-        </li>
-        <li>
-          <a href="writing/prompt-caching/">AI Isn't Free: How Prompt Caching Cut My API Bill by 57%</a><span class="writing-year">2026</span>
-          <span class="writing-desc">A practical guide to prompt caching &mdash; a one-line API parameter that cut my Deep Dugout bill from $37 to $15.81 &mdash; for anyone new to per-token AI pricing.</span>
-        </li>
-        <li>
-          <a href="writing/ai-reporter/">Building a Live-Meeting AI Reporter for $1.50 per Meeting</a><span class="writing-year">2026</span>
-          <span class="writing-desc">An end-to-end pipeline that monitors a live government meeting stream, transcribes it in real time, and drafts an AP-style news article for editor review.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="cta-banner">
-        <p>Available for speaking engagements on AI, technology, digital safety, and media literacy.</p>
-        <a href="speaking.html">Learn more about my talks &rarr;</a>
+  <section class="consult" id="contact">
+    <div class="wrap">
+      <div class="callout">
+        <div>
+          <h2>Building with AI?</h2>
+          <p>If you want to learn how to build with AI, or how to bring it into your business, I'd be glad to hear from you. I take on consulting work case by case, as long as a project doesn't conflict with my ethical obligations as a journalist.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-solid" href="mailto:nicholas@daylayown.org">Email me</a>
+        </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container">
-      <p class="pronunciation-note">"De Leon" is pronounced "day-lay-own" — hence the domain!</p>
-    </div>
-    <div class="container">
-      <span class="footer-text">&copy; <span id="year"></span> Nicholas De Leon. Made in Arizona.</span>
-      <div class="footer-links">
-        <a href="https://x.com/nicholasadeleon" target="_blank" rel="noopener" aria-label="X (formerly Twitter)">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/nicholas-de-leon-3b5b6a9/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/daylayownphoto" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z"/></svg>
-        </a>
+    <div class="wrap">
+      <span class="note">"De Leon" is pronounced "day-lay-own," hence the domain. Made in Arizona.</span>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/nicholas-de-leon-3b5b6a9/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
       </div>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>
