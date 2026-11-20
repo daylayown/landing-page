@@ -20,6 +20,7 @@ styles.css                    — Shared stylesheet for every page (fonts load v
 writing/<slug>/index.html     — Long-form essay pages, served at /writing/<slug>/
 img/projects/<project>.webp   — One homepage screenshot per featured project (1440×900 capture, WebP)
 me.jpg                        — Headshot; the hero's colors are sampled from it
+favicon.svg / .ico            — Saguaro against a red sun, in the Big Sky palette; .ico and apple-touch-icon.png are fallbacks rendered from the SVG
 CNAME                         — GitHub Pages custom domain (daylayown.org)
 cname.txt                     — Local copy of the CNAME value
 _drafts/                      — Local design mockups (A/B/C directions). Underscore folders aren't published by GitHub Pages; not committed
