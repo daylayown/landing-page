@@ -38,7 +38,7 @@ _drafts/                      — Local design mockups (A/B/C directions). Under
   - Facts in project copy come from each project's repo (`~/claude-code-projects/tucson-daily-brief-site`, `video-game-publication`, `daily-brief-agent`, `deep-dugout`, `world-cup-project`, `remontoir`; `~/codex-projects/game-mods`) or its live site. Verify before changing numbers.
   - No "smaller projects" list (Crosswording The Situation, ESPN DTC FAQ, Reflex PS2 firmware were dropped on purpose).
 - **Reporting**: six clips on a navy band. **Essays**: links to `writing/<slug>/`.
-- **Consulting callout** (`.callout`, sky blue): consulting on building with AI, case by case, as long as it doesn't conflict with his ethical obligations as a journalist.
+- **Consulting callout** (`.callout`, sky blue): no heading, just a paragraph (Nicholas cut it; avoid lines like "What could AI do for you?"). Pitches his skill at finding novel uses for AI (avoid "building with AI", which Nicholas finds lame); consulting case by case, as long as it doesn't conflict with his ethical obligations as a journalist.
 
 To refresh a screenshot: `chromium --headless=new --hide-scrollbars --window-size=1440,900 --virtual-time-budget=8000 --screenshot=out.png <url>`, then `magick out.png -quality 82 img/projects/<project>.webp`.
 

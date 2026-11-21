@@ -247,8 +247,7 @@ h2 {
   border-radius: 14px;
   padding: 3rem;
 }
-.callout h2 { color: #fff; margin-bottom: 1rem; }
-.callout p { max-width: 40rem; }
+.callout p { max-width: 44rem; font-size: 1.3rem; line-height: 1.55; }
 
 /* === FOOTER === */
 .footer { padding: 3rem 0; font-family: var(--display); font-size: 0.95rem; }
