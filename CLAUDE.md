@@ -2,7 +2,7 @@
 
 ## What this is
 
-Personal-professional site for [daylayown.org](https://daylayown.org) by Nicholas De Leon. It works as an ad for his expertise: a technology journalist who builds AI-powered newsrooms. One home page plus long-form essays under `/writing/<slug>/`. The speaking page was removed in November 2026 (Nicholas no longer advertises talks); it's in git history if ever needed.
+Personal-professional site for [daylayown.org](https://daylayown.org) by Nicholas De Leon. It works as an ad for his expertise: a technology journalist and maker of fun things (mostly built with AI). One home page plus long-form essays under `/writing/<slug>/`. The speaking page was removed in November 2026 (Nicholas no longer advertises talks); it's in git history if ever needed.
 
 ## Hosting
 
@@ -19,7 +19,7 @@ index.html                    — Home: hero, projects, reporting, essays, consu
 styles.css                    — Shared stylesheet for every page (fonts load via @import here)
 writing/<slug>/index.html     — Long-form essay pages, served at /writing/<slug>/
 img/projects/<project>.webp   — One homepage screenshot per featured project (1440×900 capture, WebP)
-me.jpg                        — Headshot; the hero's colors are sampled from it
+me.jpg                        — Headshot (dusk portrait, Nov 2026; 1800×1200, EXIF stripped). Also the og:image
 favicon.svg / .ico            — Saguaro against a red sun, in the Big Sky palette; .ico and apple-touch-icon.png are fallbacks rendered from the SVG
 CNAME                         — GitHub Pages custom domain (daylayown.org)
 cname.txt                     — Local copy of the CNAME value
@@ -30,7 +30,7 @@ _drafts/                      — Local design mockups (A/B/C directions). Under
 
 ## Home page content
 
-- **Hero**: name, the line "Technology journalist. I build AI-powered newsrooms.", a short bio (factual CR employer mention), Email me / See the projects buttons.
+- **Hero**: name, the line "Technology journalist. Maker of fun things." (Nicholas wants this light and general: not "AI-powered newsrooms" or "the intersection of AI and journalism"), a short bio (factual CR employer mention), Email me / See the projects buttons.
 - **Projects**, in this order (Nicholas's call): Tucson Daily Brief, The Raytrace, Local News 123, Deep Dugout, Griffey 30, Matchday Inference, Remontoir. Each has one screenshot in a navy browser frame. TDB and The Raytrace are `.project.feature` (full-width screenshot, two text columns, a `.panel`); the rest are alternating rows.
   - TDB's panel is the live AI reporter (the site's calling card), followed by a "Some of our biggest stories" row of four `.story` cards linking to tucsondailybrief.com In Depth pieces.
   - The Raytrace's panel is "What the AI editor does on its own": Claude Opus 5.5 as managing editor, which drafts requests for comment that Nicholas reviews and sends himself. Don't claim the Opus fact check holds or changes stories until `data/.factcheck-enforce` exists in that repo (it runs in shadow mode).
@@ -44,7 +44,7 @@ To refresh a screenshot: `chromium --headless=new --hide-scrollbars --window-siz
 
 ## Design system ("Big Sky")
 
-Defined as CSS custom properties in `:root` (`styles.css`). The palette is taken from `me.jpg`.
+Defined as CSS custom properties in `:root` (`styles.css`). The palette was sampled from an earlier headshot (blue sky, navy shirt, red collar) and is kept independent of the current photo.
 
 - **Palette**:
   - `--sky: #6493bf` (the photo's sky; hero, article top bar, callout), `--sky-low: #8db3d4`
@@ -53,14 +53,14 @@ Defined as CSS custom properties in `:root` (`styles.css`). The palette is taken
   - `--collar: #b3343c` (accent: links, status lines, dates), `--collar-dark: #8f2229`
 - **Typography** (Google Fonts): `'Bricolage Grotesque'` for headings, nav, buttons and labels; `'Newsreader'` for body text
 - **Layout**: `--wide: 1180px` via `.wrap`; essays read at `--read: 42rem`
-- **Hero**: the photo fills the right ~58% and fades into the sky gradient through a CSS mask; the name is white on the sky
+- **Hero**: the photo fills the right ~58% and fades into the sky gradient through a CSS mask; the name is white on the sky; nav links are navy because the photo's dusk sky is near-white
 
 ### Motion & interaction
 - One orchestrated moment: the hero copy rises in on load (disabled under `prefers-reduced-motion`)
 - Screenshots and story cards lift slightly on hover; buttons change color
 
 ### Mobile
-- Breakpoints at `900px` (everything stacks to one column) and `640px` (hero photo moves below the text, brand hidden in the hero top bar, tighter padding)
+- Breakpoints at `900px` (everything stacks to one column; the hero photo moves below the text, since the close-up headshot would otherwise sit behind the bio) and `640px` (brand hidden in the hero top bar, tighter padding)
 
 ### Article pages
 Shell: `<header class="page-top">` (sky top bar: brand + Projects / Essays / Contact) → `<article class="article">` → `<div class="container">` → `<header class="article-header">` (H1 + `<p class="article-meta">` date) → `<div class="article-body">` → a "More essays" `.back` link → the shared footer. `.article-body` styles `<p>`, `<strong>`, `<em>`, `<a>`, `<ul>`/`<ol>` and inline `<code>`. Paths are relative (`../../`).
