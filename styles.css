@@ -52,11 +52,11 @@ img { display: block; max-width: 100%; }
 .topbar nav a { text-decoration: none; font-weight: 600; color: var(--navy); }
 .topbar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-/* === HERO: the photo's sky becomes the page === */
+/* === HERO: name on cholla, the headshot as a crisp panel on the right half === */
 .hero {
   position: relative;
   min-height: min(92vh, 820px);
-  background: linear-gradient(180deg, var(--sky) 0%, #7aa6cd 100%);
+  background: var(--cholla);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -66,12 +66,10 @@ img { display: block; max-width: 100%; }
   position: absolute;
   top: 0;
   right: 0;
-  width: 58%;
+  width: 50%;
   height: 100%;
   object-fit: cover;
-  object-position: 35% 30%;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 32%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 32%);
+  object-position: 45% 30%;
 }
 .hero-body {
   flex: 1;
@@ -80,14 +78,13 @@ img { display: block; max-width: 100%; }
   padding-top: 0;
   padding-bottom: 4rem;
 }
-.hero-copy { max-width: 33rem; }
+.hero-copy { max-width: min(33rem, calc(50vw - 6rem)); } /* stays clear of the photo half */
 .hero h1 {
   font-family: var(--display);
   font-weight: 800;
   font-size: clamp(3rem, 7.4vw, 6.25rem);
   line-height: 0.92;
   letter-spacing: -0.035em;
-  color: #fff;
   margin-bottom: 1.5rem;
 }
 .hero .claim {
@@ -98,7 +95,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: -0.01em;
   margin-bottom: 1.25rem;
 }
-.hero .bio { font-size: 1.125rem; max-width: 30rem; margin-bottom: 2rem; }
+.hero .bio { font-size: 1.125rem; max-width: 30rem; margin-bottom: 2rem; color: var(--navy-soft); }
 
 /* === BUTTONS === */
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
@@ -312,18 +309,17 @@ h2 {
   .project:nth-child(even) .shot { order: 0; }
   .clips { grid-template-columns: 1fr 1fr; }
   .story-grid { grid-template-columns: 1fr 1fr; }
-  /* The headshot is a close-up, so below 900px it stacks under the text instead of sitting behind it */
+  /* Below 900px the headshot stacks under the text, full width */
   .hero { min-height: auto; }
+  .hero-copy { max-width: 33rem; }
   .hero-photo {
     position: static;
     order: 3;
     width: 100%;
-    height: clamp(300px, 56vw, 480px);
+    height: clamp(320px, 70vw, 520px);
     object-position: 55% 25%;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 30%);
-    mask-image: linear-gradient(180deg, transparent 0, #000 30%);
   }
-  .hero-body { padding-top: 1.5rem; padding-bottom: 1rem; }
+  .hero-body { padding-top: 1.5rem; padding-bottom: 2.5rem; }
 }
 @media (max-width: 640px) {
   .wrap, .article .container { padding: 0 1.25rem; }

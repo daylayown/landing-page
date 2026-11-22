@@ -33,7 +33,7 @@ _drafts/                      — Local design mockups (A/B/C directions). Under
 - **Hero**: name, the line "Technology journalist. Maker of fun things." (Nicholas wants this light and general: not "AI-powered newsrooms" or "the intersection of AI and journalism"), a short bio (factual CR employer mention), Email me / See the projects buttons.
 - **Projects**, in this order (Nicholas's call): Tucson Daily Brief, The Raytrace, Local News 123, Deep Dugout, Griffey 30, Matchday Inference, Roadrunner, Remontoir. Each has one screenshot in a navy browser frame. TDB and The Raytrace are `.project.feature` (full-width screenshot, two text columns, a `.panel`); the rest are alternating rows.
   - TDB's panel is the live AI reporter (the site's calling card), followed by a "Some of our biggest stories" row of four `.story` cards linking to tucsondailybrief.com In Depth pieces.
-  - The Raytrace's panel is "What the AI editor does on its own": Claude Opus 5.5 as managing editor, which drafts requests for comment that Nicholas reviews and sends himself. Don't claim the Opus fact check holds or changes stories until `data/.factcheck-enforce` exists in that repo (it runs in shadow mode).
+  - The Raytrace's panel is "An AI editor in chief". Internally it's a one-week experiment (Nov 22–29, 2026; switched on by `data/.eic` in `video-game-publication`), but **the site must never call it temporary, a test or "this week"** (Nicholas's call). In it where Claude Opus 5.5 runs the editorial meeting, sends requests for comment itself after a 30-minute hold, runs a research desk, and the fact check holds failed stories. Source: Nicholas's write-up (`~/Downloads/raytrace-editor-in-chief.md`). **After Nov 29, ask Nicholas whether it stayed on** and update the panel (if it was switched off, the old model was: Opus as managing editor, drafting requests for comment that Nicholas sent himself; the fact check in shadow mode unless `data/.factcheck-enforce` exists).
   - Griffey 30 (griffey30.com) is a SNES mod built with Claude Code; covered by the YouTuber SNESdrunk. Matchday Inference (matchdayinference.com) was a personalized World Cup 2026 zine that ran on OpenAI's GPT-5.5, so don't describe it as a Claude project.
   - Roadrunner (roadrunner.town) is a location-verified neighborhood board for the northern Tucson suburbs. It deliberately has no AI-written content, so don't describe it as an AI product.
   - Facts in project copy come from each project's repo (`~/claude-code-projects/tucson-daily-brief-site`, `video-game-publication`, `daily-brief-agent`, `deep-dugout`, `world-cup-project`, `roadrunner-local`, `remontoir`; `~/codex-projects/game-mods`) or its live site. Verify before changing numbers.
@@ -48,20 +48,20 @@ To refresh a screenshot: `chromium --headless=new --hide-scrollbars --window-siz
 Defined as CSS custom properties in `:root` (`styles.css`). The palette was sampled from an earlier headshot (blue sky, navy shirt, red collar) and is kept independent of the current photo.
 
 - **Palette**:
-  - `--sky: #6493bf` (the photo's sky; hero, article top bar, callout), `--sky-low: #8db3d4`
+  - `--sky: #6493bf` (article top bar, consulting callout, favicon; no longer used in the home hero), `--sky-low: #8db3d4`
   - `--navy: #1f2645` (text, buttons, screenshot frames, Reporting band), `--navy-soft: #3a4366`
   - `--cholla: #ebe9da` (page background), `--cholla-deep: #d9d6bf`, `--card: #f6f4ea`
   - `--collar: #b3343c` (accent: links, status lines, dates), `--collar-dark: #8f2229`
 - **Typography** (Google Fonts): `'Bricolage Grotesque'` for headings, nav, buttons and labels; `'Newsreader'` for body text
 - **Layout**: `--wide: 1180px` via `.wrap`; essays read at `--read: 42rem`
-- **Hero**: the photo fills the right ~58% and fades into the sky gradient through a CSS mask; the name is white on the sky; nav links are navy because the photo's dusk sky is near-white
+- **Hero** (redesigned Nov 2026 for the dusk headshot): plain cholla background, name in navy, bio in navy-soft. The photo is a crisp panel filling the right 50%, with no fade or mask; the text column is capped at `calc(50vw - 6rem)` so it never runs under the photo. The old blue-sky hero only made sense with the old blue-sky photo
 
 ### Motion & interaction
 - One orchestrated moment: the hero copy rises in on load (disabled under `prefers-reduced-motion`)
 - Screenshots and story cards lift slightly on hover; buttons change color
 
 ### Mobile
-- Breakpoints at `900px` (everything stacks to one column; the hero photo moves below the text, since the close-up headshot would otherwise sit behind the bio) and `640px` (brand hidden in the hero top bar, tighter padding)
+- Breakpoints at `900px` (everything stacks to one column; the hero photo moves below the text, full width) and `640px` (brand hidden in the hero top bar, tighter padding)
 
 ### Article pages
 Shell: `<header class="page-top">` (sky top bar: brand + Projects / Essays / Contact) → `<article class="article">` → `<div class="container">` → `<header class="article-header">` (H1 + `<p class="article-meta">` date) → `<div class="article-body">` → a "More essays" `.back` link → the shared footer. `.article-body` styles `<p>`, `<strong>`, `<em>`, `<a>`, `<ul>`/`<ol>` and inline `<code>`. Paths are relative (`../../`).
