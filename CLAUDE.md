@@ -48,7 +48,7 @@ To refresh a screenshot: `chromium --headless=new --hide-scrollbars --window-siz
 Defined as CSS custom properties in `:root` (`styles.css`). The palette was sampled from an earlier headshot (blue sky, navy shirt, red collar) and is kept independent of the current photo.
 
 - **Palette**:
-  - `--sky: #6493bf` (article top bar, consulting callout, favicon; no longer used in the home hero), `--sky-low: #8db3d4`
+  - `--sky: #6493bf` (consulting callout and favicon only; the home hero and essay top bar are cream), `--sky-low: #8db3d4`
   - `--navy: #1f2645` (text, buttons, screenshot frames, Reporting band), `--navy-soft: #3a4366`
   - `--cholla: #ebe9da` (page background), `--cholla-deep: #d9d6bf`, `--card: #f6f4ea`
   - `--collar: #b3343c` (accent: links, status lines, dates), `--collar-dark: #8f2229`
@@ -64,7 +64,7 @@ Defined as CSS custom properties in `:root` (`styles.css`). The palette was samp
 - Breakpoints at `900px` (everything stacks to one column; the hero photo moves below the text, full width) and `640px` (brand hidden in the hero top bar, tighter padding)
 
 ### Article pages
-Shell: `<header class="page-top">` (sky top bar: brand + Projects / Essays / Contact) → `<article class="article">` → `<div class="container">` → `<header class="article-header">` (H1 + `<p class="article-meta">` date) → `<div class="article-body">` → a "More essays" `.back` link → the shared footer. `.article-body` styles `<p>`, `<strong>`, `<em>`, `<a>`, `<ul>`/`<ol>` and inline `<code>`. Paths are relative (`../../`).
+Shell: `<header class="page-top">` (cream top bar with a thin cholla-deep rule: brand + Projects / Essays / Contact) → `<article class="article">` → `<div class="container">` → `<header class="article-header">` (H1 + `<p class="article-meta">` date) → `<div class="article-body">` → a "More essays" `.back` link → the shared footer. `.article-body` styles `<p>`, `<strong>`, `<em>`, `<a>`, `<ul>`/`<ol>` and inline `<code>`. Paths are relative (`../../`).
 
 ## Rules
 

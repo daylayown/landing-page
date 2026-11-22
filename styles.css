@@ -256,7 +256,7 @@ h2 {
 .social svg { width: 20px; height: 20px; fill: currentColor; }
 
 /* === ARTICLE PAGES (writing/<slug>/) === */
-.page-top { background: var(--sky); }
+.page-top { background: var(--cholla); border-bottom: 1px solid var(--cholla-deep); }
 .page-top .brand { color: var(--navy); }
 .article { padding: 4.5rem 0 3rem; }
 .article .container { max-width: var(--read); margin: 0 auto; padding: 0 2rem; }
