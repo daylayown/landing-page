@@ -20,7 +20,7 @@ styles.css                    — Shared stylesheet for every page (fonts load v
 writing/<slug>/index.html     — Long-form essay pages, served at /writing/<slug>/
 img/projects/<project>.webp   — One homepage screenshot per featured project (1440×900 capture, WebP)
 me.jpg                        — Headshot (dusk portrait, Nov 2026; 1800×1200, EXIF stripped). Also the og:image
-favicon.svg / .ico            — Saguaro against a red sun, in the Big Sky palette; .ico and apple-touch-icon.png are fallbacks rendered from the SVG
+favicon.svg / .ico            — Navy saguaro on a cream rounded square (no sun, per Nicholas); .ico and apple-touch-icon.png are fallbacks rendered from the SVG
 CNAME                         — GitHub Pages custom domain (daylayown.org)
 cname.txt                     — Local copy of the CNAME value
 _drafts/                      — Local design mockups (A/B/C directions). Underscore folders aren't published by GitHub Pages; not committed
@@ -39,7 +39,7 @@ _drafts/                      — Local design mockups (A/B/C directions). Under
   - Facts in project copy come from each project's repo (`~/claude-code-projects/tucson-daily-brief-site`, `video-game-publication`, `daily-brief-agent`, `deep-dugout`, `world-cup-project`, `roadrunner-local`, `remontoir`; `~/codex-projects/game-mods`) or its live site. Verify before changing numbers.
   - No "smaller projects" list (Crosswording The Situation, ESPN DTC FAQ, Reflex PS2 firmware were dropped on purpose).
 - **Reporting**: six clips on a navy band. **Essays**: links to `writing/<slug>/`.
-- **Consulting callout** (`.callout`, sky blue): no heading, just a paragraph (Nicholas cut it; avoid lines like "What could AI do for you?"). Pitches his skill at finding novel uses for AI (avoid "building with AI", which Nicholas finds lame); consulting case by case, as long as it doesn't conflict with his ethical obligations as a journalist.
+- **Consulting callout** (`.callout`, light cream card with a 2px navy outline): no heading, just a paragraph (Nicholas cut it; avoid lines like "What could AI do for you?"). Pitches his skill at finding novel uses for AI (avoid "building with AI", which Nicholas finds lame); consulting case by case, as long as it doesn't conflict with his ethical obligations as a journalist.
 
 To refresh a screenshot: `chromium --headless=new --hide-scrollbars --window-size=1440,900 --virtual-time-budget=8000 --screenshot=out.png <url>`, then `magick out.png -quality 82 img/projects/<project>.webp`.
 
@@ -48,7 +48,7 @@ To refresh a screenshot: `chromium --headless=new --hide-scrollbars --window-siz
 Defined as CSS custom properties in `:root` (`styles.css`). The palette was sampled from an earlier headshot (blue sky, navy shirt, red collar) and is kept independent of the current photo.
 
 - **Palette**:
-  - `--sky: #6493bf` (consulting callout and favicon only; the home hero and essay top bar are cream), `--sky-low: #8db3d4`
+  - `--sky: #6493bf` (no longer used anywhere; `--sky-low` only colors the outlet labels in the navy Reporting band), `--sky-low: #8db3d4`
   - `--navy: #1f2645` (text, buttons, screenshot frames, Reporting band), `--navy-soft: #3a4366`
   - `--cholla: #ebe9da` (page background), `--cholla-deep: #d9d6bf`, `--card: #f6f4ea`
   - `--collar: #b3343c` (accent: links, status lines, dates), `--collar-dark: #8f2229`
